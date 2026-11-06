@@ -23,6 +23,9 @@ Uso:
     python3 rvttool.py exporta arquivo.rvt [SAIDA] [STREAM] — JSON completo
 """
 import io
+import json
+import math
+import collections
 import olefile
 import re
 import struct
@@ -121,6 +124,42 @@ def cmd_verifica(rvt, stream='Partitions/3'):
     print(f"  tamanho final:    {len(r['data']):,} bytes")
 
 
+# ---------------------------------------------------------------- curvas type-4
+# Registro de geometria "linha" (type 4): 109 bytes, 9 doubles:
+#   [x1][y1][z1][0][x2][y2][z2][comprimento][~0]
+#   counts = [4][a][b][c][d][ref][0]  (ref = counts[5])
+# Validacao matematica: hypot(dx,dy) == comprimento
+
+def extrai_curvas_t4(data):
+    sig = b'\xff\xff\xff\xff\x04\x82\x08\x00'
+    pos = [m.start() for m in re.finditer(re.escape(sig), data)]
+    linhas = []
+    i = 0
+    while i < len(pos):
+        s = pos[i]
+        if s + 109 > len(data):
+            break
+        cnts = struct.unpack_from('<7I', data, s+8)
+        dbls = struct.unpack_from('<9d', data, s+36)
+        x1, y1, z1, q1, x2, y2, z2, L, z9 = dbls
+        dist = math.hypot(x2-x1, y2-y1)
+        ok_prox = (i+1 >= len(pos)) or (pos[i+1] == s+109)
+        if (cnts[0] == 4 and abs(q1) < 1e-9 and abs(z9) < 1e-100
+                and abs(dist-L) < 0.02*max(1, abs(L)) and ok_prox):
+            linhas.append({'x1': x1, 'y1': y1, 'z': z1, 'x2': x2, 'y2': y2,
+                           'comp': L, 'ref': cnts[5], 'item': cnts[1]})
+        i += 1
+    return linhas
+
+def cmd_curvas(rvt, saida='curvas.json'):
+    st = read_stream(rvt, 'Partitions/3')
+    linhas = extrai_curvas_t4(st['data'])
+    json.dump(linhas, open(saida, 'w'), indent=1)
+    zs = collections.Counter(round(l['z'], 2) for l in linhas)
+    print(f'curvas type-4 validadas: {len(linhas)}')
+    print('niveis (z -> n):', dict(sorted(zs.items(), key=lambda kv: -kv[1])[:8]))
+    print(f'salvo em {saida}')
+
 def main():
     if len(sys.argv) < 3:
         print(__doc__)
@@ -142,6 +181,8 @@ def main():
         cmd_plano(rvt, sys.argv[3] if len(sys.argv) > 3 else 'plano.svg')
     elif cmd == 'versao':
         cmd_versao(rvt)
+    elif cmd == 'curvas':
+        cmd_curvas(rvt, sys.argv[3] if len(sys.argv) > 3 else 'curvas.json')
     elif cmd == 'exporta':
         cmd_exporta(rvt,
                     sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',
