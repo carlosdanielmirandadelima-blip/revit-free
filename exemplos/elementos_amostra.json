@@ -1,0 +1,5039 @@
+{
+ "arquivo": "samples/rac_basic_sample_project.rvt",
+ "aviso": "extracao best-effort da fase 2 — formato em docs/ESTRUTURA.md",
+ "total_registros": 28494,
+ "com_nome": 6494,
+ "elementos": [
+  {
+   "id": 86291,
+   "grupo": 829,
+   "nome": "Standard",
+   "strings": [
+    "Standard",
+    "01000",
+    "01100",
+    "01200",
+    "01300",
+    "01400",
+    "01500",
+    "01530.A1",
+    "01530.A2",
+    "01530.A3"
+   ],
+   "lista_strings": [
+    "01000",
+    "01100",
+    "01200",
+    "01300",
+    "01400",
+    "01500",
+    "01530.A1",
+    "01530.A2",
+    "01530.A3",
+    "01530.A4",
+    "01530.A5",
+    "01530.A6",
+    "01600",
+    "01700",
+    "01800",
+    "02000",
+    "02050",
+    "02070",
+    "02070.A1",
+    "02070.A2"
+   ],
+   "bytes": 489019
+  },
+  {
+   "id": 1002459,
+   "grupo": 829,
+   "nome": "A10",
+   "strings": [
+    "A10",
+    "A20",
+    "A1010",
+    "A1020",
+    "A1030",
+    "A2010",
+    "A2020",
+    "A1010100",
+    "A1010110",
+    "A1010120"
+   ],
+   "lista_strings": [],
+   "bytes": 117238
+  },
+  {
+   "id": 230,
+   "grupo": 828,
+   "nome": "???",
+   "strings": [
+    "???",
+    "ÿd",
+    "SunAndSky-002",
+    "assetlibrary_base.fbx",
+    "Generic",
+    "assetlibrary_base."
+   ],
+   "lista_strings": [],
+   "bytes": 2316
+  },
+  {
+   "id": 311,
+   "grupo": 828,
+   "nome": "Level 1",
+   "strings": [
+    "Level 1"
+   ],
+   "lista_strings": [],
+   "bytes": 714
+  },
+  {
+   "id": 312,
+   "grupo": 828,
+   "nome": "Level 1",
+   "strings": [
+    "Level 1",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 2926
+  },
+  {
+   "id": 397,
+   "grupo": 828,
+   "nome": "Exterior - Brick on Mtl. Stud",
+   "strings": [
+    "Exterior - Brick on Mtl. Stud"
+   ],
+   "lista_strings": [],
+   "bytes": 1326
+  },
+  {
+   "id": 694,
+   "grupo": 828,
+   "nome": "Ceiling",
+   "strings": [
+    "Ceiling"
+   ],
+   "lista_strings": [],
+   "bytes": 815
+  },
+  {
+   "id": 1049,
+   "grupo": 828,
+   "nome": "M_Section Head - Filled",
+   "strings": [
+    "M_Section Head - Filled",
+    "A101"
+   ],
+   "lista_strings": [],
+   "bytes": 3335
+  },
+  {
+   "id": 1141,
+   "grupo": 828,
+   "nome": "Metric Callout",
+   "strings": [
+    "Metric Callout",
+    "Ref",
+    "A101"
+   ],
+   "lista_strings": [],
+   "bytes": 3117
+  },
+  {
+   "id": 4169,
+   "grupo": 828,
+   "nome": "M_View Title",
+   "strings": [
+    "M_View Title",
+    "View Scale",
+    "View Name"
+   ],
+   "lista_strings": [],
+   "bytes": 3137
+  },
+  {
+   "id": 8142,
+   "grupo": 828,
+   "nome": "Elevation 2",
+   "strings": [
+    "Elevation 2"
+   ],
+   "lista_strings": [],
+   "bytes": 187
+  },
+  {
+   "id": 8157,
+   "grupo": 828,
+   "nome": "North",
+   "strings": [
+    "North",
+    "ÿd",
+    "SunAndSky-0"
+   ],
+   "lista_strings": [],
+   "bytes": 2594
+  },
+  {
+   "id": 8174,
+   "grupo": 828,
+   "nome": "Elevation 3",
+   "strings": [
+    "Elevation 3"
+   ],
+   "lista_strings": [],
+   "bytes": 187
+  },
+  {
+   "id": 8176,
+   "grupo": 828,
+   "nome": "East",
+   "strings": [
+    "East",
+    "ÿd",
+    "SunAndSky-"
+   ],
+   "lista_strings": [],
+   "bytes": 2596
+  },
+  {
+   "id": 8208,
+   "grupo": 828,
+   "nome": "Elevation 5",
+   "strings": [
+    "Elevation 5"
+   ],
+   "lista_strings": [],
+   "bytes": 187
+  },
+  {
+   "id": 8237,
+   "grupo": 828,
+   "nome": "West",
+   "strings": [
+    "West",
+    "ÿd",
+    "SunAndSky-00"
+   ],
+   "lista_strings": [],
+   "bytes": 2592
+  },
+  {
+   "id": 8251,
+   "grupo": 828,
+   "nome": "Site",
+   "strings": [
+    "Site",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 2967
+  },
+  {
+   "id": 9490,
+   "grupo": 828,
+   "nome": "Gross Building$",
+   "strings": [
+    "Gross Building$",
+    "Total Constructed Area of a Building"
+   ],
+   "lista_strings": [],
+   "bytes": 231
+  },
+  {
+   "id": 9494,
+   "grupo": 828,
+   "nome": "Rentable[",
+   "strings": [
+    "Rentable[",
+    "Area Measurements Based on the Standard Method for Measuring Floor Area in Office Buildings"
+   ],
+   "lista_strings": [],
+   "bytes": 351
+  },
+  {
+   "id": 9599,
+   "grupo": 828,
+   "nome": "Architectural Reflected Ceiling Plan",
+   "strings": [
+    "Architectural Reflected Ceiling Plan",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 2918
+  },
+  {
+   "id": 9605,
+   "grupo": 828,
+   "nome": "Architectural Elevation",
+   "strings": [
+    "Architectural Elevation",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 2648
+  },
+  {
+   "id": 9610,
+   "grupo": 828,
+   "nome": "Architectural Section",
+   "strings": [
+    "Architectural Section",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 2638
+  },
+  {
+   "id": 16216,
+   "grupo": 828,
+   "nome": "50 x 50mm",
+   "strings": [
+    "50 x 50mm"
+   ],
+   "lista_strings": [],
+   "bytes": 2987
+  },
+  {
+   "id": 16332,
+   "grupo": 828,
+   "nome": "30mm",
+   "strings": [
+    "30mm"
+   ],
+   "lista_strings": [],
+   "bytes": 3135
+  },
+  {
+   "id": 20074,
+   "grupo": 828,
+   "nome": "600 x 300mm",
+   "strings": [
+    "600 x 300mm"
+   ],
+   "lista_strings": [],
+   "bytes": 3522
+  },
+  {
+   "id": 20380,
+   "grupo": 828,
+   "nome": "19 x 235mm",
+   "strings": [
+    "19 x 235mm"
+   ],
+   "lista_strings": [],
+   "bytes": 3343
+  },
+  {
+   "id": 23738,
+   "grupo": 828,
+   "nome": "M_Spot Elevation - Target Filled",
+   "strings": [
+    "M_Spot Elevation - Target Filled"
+   ],
+   "lista_strings": [],
+   "bytes": 3129
+  },
+  {
+   "id": 24584,
+   "grupo": 828,
+   "nome": "M_Grid Head - Circle",
+   "strings": [
+    "M_Grid Head - Circle"
+   ],
+   "lista_strings": [],
+   "bytes": 2831
+  },
+  {
+   "id": 24867,
+   "grupo": 828,
+   "nome": "M_Level Head - Circle",
+   "strings": [
+    "M_Level Head - Circle",
+    "Name",
+    "Elevation"
+   ],
+   "lista_strings": [],
+   "bytes": 3241
+  },
+  {
+   "id": 28045,
+   "grupo": 828,
+   "nome": "M_Section Tail - Filled",
+   "strings": [
+    "M_Section Tail - Filled"
+   ],
+   "lista_strings": [],
+   "bytes": 3151
+  },
+  {
+   "id": 28776,
+   "grupo": 828,
+   "nome": "M_Section Tail - Filled Horizontal",
+   "strings": [
+    "M_Section Tail - Filled Horizontal"
+   ],
+   "lista_strings": [],
+   "bytes": 3173
+  },
+  {
+   "id": 28929,
+   "grupo": 828,
+   "nome": "M_Section Head - No Arrow",
+   "strings": [
+    "M_Section Head - No Arrow",
+    "A101"
+   ],
+   "lista_strings": [],
+   "bytes": 2971
+  },
+  {
+   "id": 29292,
+   "grupo": 828,
+   "nome": "Running Section ",
+   "strings": [
+    "Running Section "
+   ],
+   "lista_strings": [],
+   "bytes": 4321
+  },
+  {
+   "id": 54538,
+   "grupo": 828,
+   "nome": "Exterior - Block on Mtl. Stud",
+   "strings": [
+    "Exterior - Block on Mtl. Stud"
+   ],
+   "lista_strings": [],
+   "bytes": 20969
+  },
+  {
+   "id": 28929,
+   "grupo": 828,
+   "nome": " M",
+   "strings": [
+    " M"
+   ],
+   "lista_strings": [],
+   "bytes": 24878
+  },
+  {
+   "id": 198367,
+   "grupo": 828,
+   "nome": "F10",
+   "strings": [
+    "F10",
+    "Structural Insulation Panel Wall with Kiln Dried Timber Panel Rainscreen",
+    "Wall - Timber Clad"
+   ],
+   "lista_strings": [],
+   "bytes": 1517
+  },
+  {
+   "id": 232754,
+   "grupo": 828,
+   "nome": "C1010145",
+   "strings": [
+    "C1010145",
+    "Interior - 165 Partition (1-hr)"
+   ],
+   "lista_strings": [],
+   "bytes": 983
+  },
+  {
+   "id": 232758,
+   "grupo": 828,
+   "nome": "Glazed",
+   "strings": [
+    "Glazed"
+   ],
+   "lista_strings": [],
+   "bytes": 677
+  },
+  {
+   "id": 232770,
+   "grupo": 828,
+   "nome": "64 x 128 rectangular",
+   "strings": [
+    "64 x 128 rectangular"
+   ],
+   "lista_strings": [],
+   "bytes": 775
+  },
+  {
+   "id": 232827,
+   "grupo": 828,
+   "nome": "C1010145",
+   "strings": [
+    "C1010145",
+    "Interior - Partition"
+   ],
+   "lista_strings": [],
+   "bytes": 963
+  },
+  {
+   "id": 288367,
+   "grupo": 828,
+   "nome": "ÿÉ",
+   "strings": [
+    "ÿÉ"
+   ],
+   "lista_strings": [],
+   "bytes": 12723
+  },
+  {
+   "id": 382615,
+   "grupo": 828,
+   "nome": "ÿ*",
+   "strings": [
+    "ÿ*"
+   ],
+   "lista_strings": [],
+   "bytes": 15625
+  },
+  {
+   "id": 417494,
+   "grupo": 828,
+   "nome": "ÞôÝÝÒÉ",
+   "strings": [
+    "ÞôÝÝÒÉ",
+    "ôÝ",
+    "ÞôÝÝÝÒ",
+    "ÞôÝ"
+   ],
+   "lista_strings": [],
+   "bytes": 879
+  },
+  {
+   "id": 415681,
+   "grupo": 828,
+   "nome": "ÿÆ",
+   "strings": [
+    "ÿÆ",
+    "ÿb",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ",
+    "åàÐÊÓÊ"
+   ],
+   "lista_strings": [],
+   "bytes": 25311
+  },
+  {
+   "id": 415674,
+   "grupo": 828,
+   "nome": "?k",
+   "strings": [
+    "?k",
+    "ÐÊ",
+    "ÿà",
+    "ÐÊ",
+    "dÓ",
+    "ÐÊ",
+    "ÿà",
+    "ÐÊ",
+    "dÓ"
+   ],
+   "lista_strings": [],
+   "bytes": 1447
+  },
+  {
+   "id": 415681,
+   "grupo": 828,
+   "nome": "ÐÊ",
+   "strings": [
+    "ÐÊ",
+    "dÓ",
+    "12"
+   ],
+   "lista_strings": [],
+   "bytes": 99018
+  },
+  {
+   "id": 428955,
+   "grupo": 828,
+   "nome": "F10",
+   "strings": [
+    "F10",
+    "Structural Insulation Panel Wall with Kiln Dried Timber Panel Rainscreen",
+    "WT1",
+    "SIP 202mm Wall - conc clad"
+   ],
+   "lista_strings": [],
+   "bytes": 2346
+  },
+  {
+   "id": 430859,
+   "grupo": 828,
+   "nome": "ÿë",
+   "strings": [
+    "ÿë"
+   ],
+   "lista_strings": [],
+   "bytes": 8578
+  },
+  {
+   "id": 430997,
+   "grupo": 828,
+   "nome": "202",
+   "strings": [
+    "202"
+   ],
+   "lista_strings": [],
+   "bytes": 481
+  },
+  {
+   "id": 431064,
+   "grupo": 828,
+   "nome": "204",
+   "strings": [
+    "204"
+   ],
+   "lista_strings": [],
+   "bytes": 481
+  },
+  {
+   "id": 431144,
+   "grupo": 828,
+   "nome": "203",
+   "strings": [
+    "203"
+   ],
+   "lista_strings": [],
+   "bytes": 481
+  },
+  {
+   "id": 431198,
+   "grupo": 828,
+   "nome": "205",
+   "strings": [
+    "205"
+   ],
+   "lista_strings": [],
+   "bytes": 487
+  },
+  {
+   "id": 457479,
+   "grupo": 828,
+   "nome": "18",
+   "strings": [
+    "18"
+   ],
+   "lista_strings": [],
+   "bytes": 920
+  },
+  {
+   "id": 457534,
+   "grupo": 828,
+   "nome": "19",
+   "strings": [
+    "19"
+   ],
+   "lista_strings": [],
+   "bytes": 903
+  },
+  {
+   "id": 457542,
+   "grupo": 828,
+   "nome": "20",
+   "strings": [
+    "20"
+   ],
+   "lista_strings": [],
+   "bytes": 905
+  },
+  {
+   "id": 469411,
+   "grupo": 828,
+   "nome": "ÿV",
+   "strings": [
+    "ÿV"
+   ],
+   "lista_strings": [],
+   "bytes": 8003
+  },
+  {
+   "id": 485432,
+   "grupo": 828,
+   "nome": "21",
+   "strings": [
+    "21"
+   ],
+   "lista_strings": [],
+   "bytes": 1018
+  },
+  {
+   "id": 485452,
+   "grupo": 828,
+   "nome": "206B",
+   "strings": [
+    "206B"
+   ],
+   "lista_strings": [],
+   "bytes": 505
+  },
+  {
+   "id": 485679,
+   "grupo": 828,
+   "nome": "206A",
+   "strings": [
+    "206A"
+   ],
+   "lista_strings": [],
+   "bytes": 485
+  },
+  {
+   "id": 488864,
+   "grupo": 828,
+   "nome": "33",
+   "strings": [
+    "33",
+    "ÿü"
+   ],
+   "lista_strings": [],
+   "bytes": 9836
+  },
+  {
+   "id": 488881,
+   "grupo": 828,
+   "nome": "22",
+   "strings": [
+    "22"
+   ],
+   "lista_strings": [],
+   "bytes": 483
+  },
+  {
+   "id": 489062,
+   "grupo": 828,
+   "nome": "23",
+   "strings": [
+    "23"
+   ],
+   "lista_strings": [],
+   "bytes": 483
+  },
+  {
+   "id": 489599,
+   "grupo": 828,
+   "nome": "ÿF",
+   "strings": [
+    "ÿF"
+   ],
+   "lista_strings": [],
+   "bytes": 95486
+  },
+  {
+   "id": 495353,
+   "grupo": 828,
+   "nome": "ÿ.",
+   "strings": [
+    "ÿ."
+   ],
+   "lista_strings": [],
+   "bytes": 4934
+  },
+  {
+   "id": 496586,
+   "grupo": 828,
+   "nome": "ÿÉ",
+   "strings": [
+    "ÿÉ"
+   ],
+   "lista_strings": [],
+   "bytes": 9891
+  },
+  {
+   "id": 497540,
+   "grupo": 828,
+   "nome": "ÿ3",
+   "strings": [
+    "ÿ3"
+   ],
+   "lista_strings": [],
+   "bytes": 3826
+  },
+  {
+   "id": 498006,
+   "grupo": 828,
+   "nome": "24",
+   "strings": [
+    "24"
+   ],
+   "lista_strings": [],
+   "bytes": 1005
+  },
+  {
+   "id": 499496,
+   "grupo": 828,
+   "nome": "Elev./Sec./Det.",
+   "strings": [
+    "Elev./Sec./Det.",
+    "A104",
+    "07/30/12",
+    "SM",
+    "JLH",
+    "Designer",
+    "Approver",
+    "07/30/12"
+   ],
+   "lista_strings": [],
+   "bytes": 3875
+  },
+  {
+   "id": 505854,
+   "grupo": 828,
+   "nome": "51",
+   "strings": [
+    "51"
+   ],
+   "lista_strings": [],
+   "bytes": 18630
+  },
+  {
+   "id": 505974,
+   "grupo": 828,
+   "nome": "207",
+   "strings": [
+    "207"
+   ],
+   "lista_strings": [],
+   "bytes": 473
+  },
+  {
+   "id": 506157,
+   "grupo": 647,
+   "nome": "wardrobe1",
+   "strings": [
+    "wardrobe1",
+    "wardrobe1"
+   ],
+   "lista_strings": [],
+   "bytes": 1323
+  },
+  {
+   "id": 506166,
+   "grupo": 828,
+   "nome": "wardrobe",
+   "strings": [
+    "wardrobe"
+   ],
+   "lista_strings": [],
+   "bytes": 3099
+  },
+  {
+   "id": 506386,
+   "grupo": 828,
+   "nome": "ÿ1",
+   "strings": [
+    "ÿ1"
+   ],
+   "lista_strings": [],
+   "bytes": 3370
+  },
+  {
+   "id": 506797,
+   "grupo": 828,
+   "nome": "ÿ,",
+   "strings": [
+    "ÿ,"
+   ],
+   "lista_strings": [],
+   "bytes": 3784
+  },
+  {
+   "id": 507058,
+   "grupo": 828,
+   "nome": "ÿü",
+   "strings": [
+    "ÿü"
+   ],
+   "lista_strings": [],
+   "bytes": 9804
+  },
+  {
+   "id": 509468,
+   "grupo": 828,
+   "nome": "600mm Diameter",
+   "strings": [
+    "600mm Diameter",
+    "A1020130"
+   ],
+   "lista_strings": [],
+   "bytes": 4833
+  },
+  {
+   "id": 512173,
+   "grupo": 828,
+   "nome": "ÿ#",
+   "strings": [
+    "ÿ#",
+    "600 x 600 x 900mm",
+    "A1010130"
+   ],
+   "lista_strings": [],
+   "bytes": 4378
+  },
+  {
+   "id": 512399,
+   "grupo": 828,
+   "nome": "A1020130",
+   "strings": [
+    "A1020130"
+   ],
+   "lista_strings": [],
+   "bytes": 3286
+  },
+  {
+   "id": 512683,
+   "grupo": 828,
+   "nome": "ÿ2",
+   "strings": [
+    "ÿ2"
+   ],
+   "lista_strings": [],
+   "bytes": 3440
+  },
+  {
+   "id": 554383,
+   "grupo": 828,
+   "nome": "28",
+   "strings": [
+    "28"
+   ],
+   "lista_strings": [],
+   "bytes": 999
+  },
+  {
+   "id": 563585,
+   "grupo": 828,
+   "nome": "M_Pile Cap-600 PileL",
+   "strings": [
+    "M_Pile Cap-600 PileL",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Metric\\Structural Foundations\\",
+    "23.25.05.11",
+    "Pile Cap-1 Pile-0000-CAN-ENU",
+    "A1010130",
+    "600 x 600 x 900mm",
+    "A10101"
+   ],
+   "lista_strings": [],
+   "bytes": 4681
+  },
+  {
+   "id": 564479,
+   "grupo": 828,
+   "nome": "ÿ#",
+   "strings": [
+    "ÿ#",
+    "A1010130"
+   ],
+   "lista_strings": [],
+   "bytes": 4609
+  },
+  {
+   "id": 581500,
+   "grupo": 828,
+   "nome": "Foundation - 300mm Concrete",
+   "strings": [
+    "Foundation - 300mm Concrete"
+   ],
+   "lista_strings": [],
+   "bytes": 652
+  },
+  {
+   "id": 598493,
+   "grupo": 828,
+   "nome": "38x64",
+   "strings": [
+    "38x64"
+   ],
+   "lista_strings": [],
+   "bytes": 3757
+  },
+  {
+   "id": 599841,
+   "grupo": 828,
+   "nome": "ÿO",
+   "strings": [
+    "ÿO"
+   ],
+   "lista_strings": [],
+   "bytes": 4247
+  },
+  {
+   "id": 599906,
+   "grupo": 828,
+   "nome": "ÿI",
+   "strings": [
+    "ÿI"
+   ],
+   "lista_strings": [],
+   "bytes": 4183
+  },
+  {
+   "id": 599951,
+   "grupo": 828,
+   "nome": "ÿx",
+   "strings": [
+    "ÿx"
+   ],
+   "lista_strings": [],
+   "bytes": 5443
+  },
+  {
+   "id": 599952,
+   "grupo": 828,
+   "nome": "ÿ%",
+   "strings": [
+    "ÿ%"
+   ],
+   "lista_strings": [],
+   "bytes": 4014
+  },
+  {
+   "id": 600634,
+   "grupo": 828,
+   "nome": "F10",
+   "strings": [
+    "F10",
+    "CL_W1"
+   ],
+   "lista_strings": [],
+   "bytes": 630
+  },
+  {
+   "id": 627064,
+   "grupo": 828,
+   "nome": "ÿj",
+   "strings": [
+    "ÿj"
+   ],
+   "lista_strings": [],
+   "bytes": 3461
+  },
+  {
+   "id": 627065,
+   "grupo": 828,
+   "nome": "ÿ!",
+   "strings": [
+    "ÿ!"
+   ],
+   "lista_strings": [],
+   "bytes": 3906
+  },
+  {
+   "id": 627729,
+   "grupo": 828,
+   "nome": "ÿ[",
+   "strings": [
+    "ÿ["
+   ],
+   "lista_strings": [],
+   "bytes": 3326
+  },
+  {
+   "id": 628298,
+   "grupo": 828,
+   "nome": "water",
+   "strings": [
+    "water"
+   ],
+   "lista_strings": [],
+   "bytes": 2062
+  },
+  {
+   "id": 628357,
+   "grupo": 828,
+   "nome": "ÿ%",
+   "strings": [
+    "ÿ%",
+    "water"
+   ],
+   "lista_strings": [],
+   "bytes": 3582
+  },
+  {
+   "id": 628359,
+   "grupo": 828,
+   "nome": "ÿ0",
+   "strings": [
+    "ÿ0"
+   ],
+   "lista_strings": [],
+   "bytes": 5536
+  },
+  {
+   "id": 628366,
+   "grupo": 822,
+   "nome": "ÿ7",
+   "strings": [
+    "ÿ7"
+   ],
+   "lista_strings": [],
+   "bytes": 3606
+  },
+  {
+   "id": 628454,
+   "grupo": 786,
+   "nome": "ÿ2",
+   "strings": [
+    "ÿ2"
+   ],
+   "lista_strings": [],
+   "bytes": 3464
+  },
+  {
+   "id": 628456,
+   "grupo": 786,
+   "nome": "ÿE",
+   "strings": [
+    "ÿE"
+   ],
+   "lista_strings": [],
+   "bytes": 3176
+  },
+  {
+   "id": 665557,
+   "grupo": 828,
+   "nome": "Ml",
+   "strings": [
+    "Ml"
+   ],
+   "lista_strings": [],
+   "bytes": 2498
+  },
+  {
+   "id": 669452,
+   "grupo": 828,
+   "nome": "ÿG",
+   "strings": [
+    "ÿG"
+   ],
+   "lista_strings": [],
+   "bytes": 5712
+  },
+  {
+   "id": 669454,
+   "grupo": 828,
+   "nome": "ÿG",
+   "strings": [
+    "ÿG"
+   ],
+   "lista_strings": [],
+   "bytes": 5712
+  },
+  {
+   "id": 669456,
+   "grupo": 828,
+   "nome": "ÿF",
+   "strings": [
+    "ÿF"
+   ],
+   "lista_strings": [],
+   "bytes": 5692
+  },
+  {
+   "id": 669458,
+   "grupo": 828,
+   "nome": "ÿF",
+   "strings": [
+    "ÿF"
+   ],
+   "lista_strings": [],
+   "bytes": 5690
+  },
+  {
+   "id": 690047,
+   "grupo": 828,
+   "nome": "gÀ",
+   "strings": [
+    "gÀ"
+   ],
+   "lista_strings": [],
+   "bytes": 14102
+  },
+  {
+   "id": 692863,
+   "grupo": 828,
+   "nome": "gÀ",
+   "strings": [
+    "gÀ"
+   ],
+   "lista_strings": [],
+   "bytes": 13466
+  },
+  {
+   "id": 697447,
+   "grupo": 689,
+   "nome": "hood enclosure",
+   "strings": [
+    "hood enclosure",
+    "hood enclosure"
+   ],
+   "lista_strings": [],
+   "bytes": 970
+  },
+  {
+   "id": 697449,
+   "grupo": 822,
+   "nome": "ÿH",
+   "strings": [
+    "ÿH"
+   ],
+   "lista_strings": [],
+   "bytes": 2225
+  },
+  {
+   "id": 697453,
+   "grupo": 808,
+   "nome": "Profile plane",
+   "strings": [
+    "Profile plane"
+   ],
+   "lista_strings": [],
+   "bytes": 778
+  },
+  {
+   "id": 697575,
+   "grupo": 828,
+   "nome": "ÿ,",
+   "strings": [
+    "ÿ,",
+    "hood enclosure"
+   ],
+   "lista_strings": [],
+   "bytes": 7167
+  },
+  {
+   "id": 697480,
+   "grupo": 808,
+   "nome": "-Æ",
+   "strings": [
+    "-Æ"
+   ],
+   "lista_strings": [],
+   "bytes": 68141
+  },
+  {
+   "id": 706288,
+   "grupo": 828,
+   "nome": "93",
+   "strings": [
+    "93"
+   ],
+   "lista_strings": [],
+   "bytes": 899
+  },
+  {
+   "id": 707722,
+   "grupo": 828,
+   "nome": "ÿC",
+   "strings": [
+    "ÿC"
+   ],
+   "lista_strings": [],
+   "bytes": 5559
+  },
+  {
+   "id": 708904,
+   "grupo": 828,
+   "nome": "ÿR",
+   "strings": [
+    "ÿR",
+    "L127X127X9.5"
+   ],
+   "lista_strings": [],
+   "bytes": 6889
+  },
+  {
+   "id": 709206,
+   "grupo": 828,
+   "nome": "ÿR",
+   "strings": [
+    "ÿR"
+   ],
+   "lista_strings": [],
+   "bytes": 6106
+  },
+  {
+   "id": 709246,
+   "grupo": 828,
+   "nome": "201B",
+   "strings": [
+    "201B"
+   ],
+   "lista_strings": [],
+   "bytes": 505
+  },
+  {
+   "id": 709940,
+   "grupo": 828,
+   "nome": "ÿR",
+   "strings": [
+    "ÿR"
+   ],
+   "lista_strings": [],
+   "bytes": 6100
+  },
+  {
+   "id": 711906,
+   "grupo": 828,
+   "nome": "Retaining - 300mm Concrete",
+   "strings": [
+    "Retaining - 300mm Concrete"
+   ],
+   "lista_strings": [],
+   "bytes": 1269
+  },
+  {
+   "id": 745997,
+   "grupo": 828,
+   "nome": "ÿ!",
+   "strings": [
+    "ÿ!"
+   ],
+   "lista_strings": [],
+   "bytes": 2982
+  },
+  {
+   "id": 746235,
+   "grupo": 828,
+   "nome": "ÿ=",
+   "strings": [
+    "ÿ="
+   ],
+   "lista_strings": [],
+   "bytes": 3748
+  },
+  {
+   "id": 746589,
+   "grupo": 828,
+   "nome": "ÿf",
+   "strings": [
+    "ÿf"
+   ],
+   "lista_strings": [],
+   "bytes": 5160
+  },
+  {
+   "id": 746634,
+   "grupo": 828,
+   "nome": "ÿT",
+   "strings": [
+    "ÿT"
+   ],
+   "lista_strings": [],
+   "bytes": 4595
+  },
+  {
+   "id": 746766,
+   "grupo": 828,
+   "nome": "ÿH",
+   "strings": [
+    "ÿH"
+   ],
+   "lista_strings": [],
+   "bytes": 4277
+  },
+  {
+   "id": 757198,
+   "grupo": 828,
+   "nome": "36",
+   "strings": [
+    "36"
+   ],
+   "lista_strings": [],
+   "bytes": 2368
+  },
+  {
+   "id": 764691,
+   "grupo": 828,
+   "nome": "ÿ'",
+   "strings": [
+    "ÿ'"
+   ],
+   "lista_strings": [],
+   "bytes": 4079
+  },
+  {
+   "id": 764692,
+   "grupo": 828,
+   "nome": "ÿ*",
+   "strings": [
+    "ÿ*"
+   ],
+   "lista_strings": [],
+   "bytes": 7304
+  },
+  {
+   "id": 765620,
+   "grupo": 828,
+   "nome": "ÿ!",
+   "strings": [
+    "ÿ!"
+   ],
+   "lista_strings": [],
+   "bytes": 2972
+  },
+  {
+   "id": 766598,
+   "grupo": 828,
+   "nome": "ÿ<",
+   "strings": [
+    "ÿ<"
+   ],
+   "lista_strings": [],
+   "bytes": 3973
+  },
+  {
+   "id": 766599,
+   "grupo": 828,
+   "nome": "ÿ:",
+   "strings": [
+    "ÿ:"
+   ],
+   "lista_strings": [],
+   "bytes": 7752
+  },
+  {
+   "id": 767797,
+   "grupo": 828,
+   "nome": "47",
+   "strings": [
+    "47"
+   ],
+   "lista_strings": [],
+   "bytes": 1296
+  },
+  {
+   "id": 767856,
+   "grupo": 828,
+   "nome": "48",
+   "strings": [
+    "48"
+   ],
+   "lista_strings": [],
+   "bytes": 1296
+  },
+  {
+   "id": 767857,
+   "grupo": 828,
+   "nome": "49",
+   "strings": [
+    "49"
+   ],
+   "lista_strings": [],
+   "bytes": 1296
+  },
+  {
+   "id": 767870,
+   "grupo": 828,
+   "nome": "50",
+   "strings": [
+    "50"
+   ],
+   "lista_strings": [],
+   "bytes": 1296
+  },
+  {
+   "id": 767871,
+   "grupo": 828,
+   "nome": "51",
+   "strings": [
+    "51"
+   ],
+   "lista_strings": [],
+   "bytes": 1296
+  },
+  {
+   "id": 767916,
+   "grupo": 828,
+   "nome": "52",
+   "strings": [
+    "52"
+   ],
+   "lista_strings": [],
+   "bytes": 1296
+  },
+  {
+   "id": 767917,
+   "grupo": 828,
+   "nome": "53",
+   "strings": [
+    "53"
+   ],
+   "lista_strings": [],
+   "bytes": 1292
+  },
+  {
+   "id": 800336,
+   "grupo": 828,
+   "nome": "25",
+   "strings": [
+    "25",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 900
+  },
+  {
+   "id": 800340,
+   "grupo": 828,
+   "nome": "42",
+   "strings": [
+    "42",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800342,
+   "grupo": 828,
+   "nome": "43",
+   "strings": [
+    "43",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800348,
+   "grupo": 828,
+   "nome": "44",
+   "strings": [
+    "44",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800350,
+   "grupo": 828,
+   "nome": "45",
+   "strings": [
+    "45",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800381,
+   "grupo": 828,
+   "nome": "46",
+   "strings": [
+    "46",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800383,
+   "grupo": 828,
+   "nome": "47",
+   "strings": [
+    "47",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800389,
+   "grupo": 828,
+   "nome": "48",
+   "strings": [
+    "48",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 800391,
+   "grupo": 828,
+   "nome": "49",
+   "strings": [
+    "49",
+    "Solarworld Sunmodule Plus",
+    "10Deg Wedge",
+    "Framed"
+   ],
+   "lista_strings": [],
+   "bytes": 918
+  },
+  {
+   "id": 802782,
+   "grupo": 828,
+   "nome": "56",
+   "strings": [
+    "56"
+   ],
+   "lista_strings": [],
+   "bytes": 2185
+  },
+  {
+   "id": 812954,
+   "grupo": 828,
+   "nome": "57",
+   "strings": [
+    "57"
+   ],
+   "lista_strings": [],
+   "bytes": 760
+  },
+  {
+   "id": 845480,
+   "grupo": 828,
+   "nome": "C1010145",
+   "strings": [
+    "C1010145",
+    "Cavity wall_sliders"
+   ],
+   "lista_strings": [],
+   "bytes": 1249
+  },
+  {
+   "id": 866105,
+   "grupo": 828,
+   "nome": " @",
+   "strings": [
+    " @",
+    " @",
+    "60"
+   ],
+   "lista_strings": [],
+   "bytes": 7116
+  },
+  {
+   "id": 906885,
+   "grupo": 828,
+   "nome": "ÿ%",
+   "strings": [
+    "ÿ%"
+   ],
+   "lista_strings": [],
+   "bytes": 6023
+  },
+  {
+   "id": 906937,
+   "grupo": 828,
+   "nome": "105",
+   "strings": [
+    "105"
+   ],
+   "lista_strings": [],
+   "bytes": 483
+  },
+  {
+   "id": 907609,
+   "grupo": 828,
+   "nome": "65",
+   "strings": [
+    "65"
+   ],
+   "lista_strings": [],
+   "bytes": 8466
+  },
+  {
+   "id": 910850,
+   "grupo": 828,
+   "nome": "68",
+   "strings": [
+    "68"
+   ],
+   "lista_strings": [],
+   "bytes": 8191
+  },
+  {
+   "id": 931575,
+   "grupo": 828,
+   "nome": " 1",
+   "strings": [
+    " 1"
+   ],
+   "lista_strings": [],
+   "bytes": 1385
+  },
+  {
+   "id": 931635,
+   "grupo": 828,
+   "nome": " 3",
+   "strings": [
+    " 3"
+   ],
+   "lista_strings": [],
+   "bytes": 1385
+  },
+  {
+   "id": 932544,
+   "grupo": 828,
+   "nome": "ÿB",
+   "strings": [
+    "ÿB"
+   ],
+   "lista_strings": [],
+   "bytes": 2717
+  },
+  {
+   "id": 932867,
+   "grupo": 828,
+   "nome": " 4",
+   "strings": [
+    " 4"
+   ],
+   "lista_strings": [],
+   "bytes": 1385
+  },
+  {
+   "id": 933816,
+   "grupo": 828,
+   "nome": "ÿB",
+   "strings": [
+    "ÿB",
+    " 5"
+   ],
+   "lista_strings": [],
+   "bytes": 2721
+  },
+  {
+   "id": 946014,
+   "grupo": 828,
+   "nome": "Large Tooth Aspen",
+   "strings": [
+    "Large Tooth Aspen",
+    "T3",
+    "Largetooth Aspen - 25'",
+    "{2, 15},{39, RPC-16-G0VG-J3PX-MQ0P-J000-ST1L-LVER-AU},{1, 0},{1, 0},{2, 36},{1, 8},{5, Color},{1, 0},{1, 0},{3, 0.8},{3, 0.8},{3, 0.8},{1, 8},{7, BBoxMin},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{1, 8},{7, BBoxM"
+   ],
+   "lista_strings": [],
+   "bytes": 7514
+  },
+  {
+   "id": 946016,
+   "grupo": 828,
+   "nome": "Lombardy Poplar",
+   "strings": [
+    "Lombardy Poplar",
+    "T7",
+    "Lombardy Poplar - 40'",
+    "{2, 15},{39, RPC-16-FVA4-CP7X-CFP7-S000-ST1L-LVER-AU},{1, 0},{1, 0},{2, 36},{1, 8},{5, Color},{1, 0},{1, 0},{3, 0.8},{3, 0.8},{3, 0.8},{1, 8},{7, BBoxMin},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{1, 8},{7, BBoxMax}"
+   ],
+   "lista_strings": [],
+   "bytes": 7412
+  },
+  {
+   "id": 946018,
+   "grupo": 828,
+   "nome": "Red Maple",
+   "strings": [
+    "Red Maple",
+    "T4",
+    "Red Maple - 30'",
+    "{2, 15},{39, RPC-16-G0SR-83PX-Q347-6000-ST1L-LVER-AU},{1, 0},{1, 0},{2, 36},{1, 8},{5, Color},{1, 0},{1, 0},{3, 0.8},{3, 0.8},{3, 0.8},{1, 8},{7, BBoxMin},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{1, 8},{7, BBoxMax},{1, 0},{1, "
+   ],
+   "lista_strings": [],
+   "bytes": 7548
+  },
+  {
+   "id": 946020,
+   "grupo": 828,
+   "nome": "Scarlet Oak",
+   "strings": [
+    "Scarlet Oak",
+    "T5",
+    "Scarlet Oak - 42'",
+    "{2, 15},{39, RPC-16-G0FB-J5PX-0LX6-U000-ST1L-LVER-AU},{1, 0},{1, 0},{2, 36},{1, 8},{5, Color},{1, 0},{1, 0},{3, 0.8},{3, 0.8},{3, 0.8},{1, 8},{7, BBoxMin},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{1, 8},{7, BBoxMax},{1, 0},"
+   ],
+   "lista_strings": [],
+   "bytes": 7344
+  },
+  {
+   "id": 948102,
+   "grupo": 828,
+   "nome": "@ï",
+   "strings": [
+    "@ï",
+    "@ï",
+    "@ï"
+   ],
+   "lista_strings": [],
+   "bytes": 804
+  },
+  {
+   "id": 948584,
+   "grupo": 828,
+   "nome": "Degress Minutes Seconds",
+   "strings": [
+    "Degress Minutes Seconds",
+    "90 00' 00\"",
+    "Distance"
+   ],
+   "lista_strings": [],
+   "bytes": 4807
+  },
+  {
+   "id": 959386,
+   "grupo": 828,
+   "nome": "Boxed",
+   "strings": [
+    "Boxed",
+    "1i"
+   ],
+   "lista_strings": [],
+   "bytes": 16548
+  },
+  {
+   "id": 959514,
+   "grupo": 828,
+   "nome": "Approach",
+   "strings": [
+    "Approach"
+   ],
+   "lista_strings": [],
+   "bytes": 11810
+  },
+  {
+   "id": 960812,
+   "grupo": 828,
+   "nome": "E,S,D - Highlight Learning Content",
+   "strings": [
+    "E,S,D - Highlight Learning Content",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 2782
+  },
+  {
+   "id": 960887,
+   "grupo": 828,
+   "nome": "Architectural Plan",
+   "strings": [
+    "Architectural Plan",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 3057
+  },
+  {
+   "id": 960889,
+   "grupo": 828,
+   "nome": "Plan - Highlight Learning Content",
+   "strings": [
+    "Plan - Highlight Learning Content"
+   ],
+   "lista_strings": [],
+   "bytes": 3249
+  },
+  {
+   "id": 961104,
+   "grupo": 828,
+   "nome": "Site Plan",
+   "strings": [
+    "Site Plan",
+    "ÿd"
+   ],
+   "lista_strings": [],
+   "bytes": 9173
+  },
+  {
+   "id": 961908,
+   "grupo": 828,
+   "nome": "ÿ#",
+   "strings": [
+    "ÿ#",
+    "Select for Help Link"
+   ],
+   "lista_strings": [],
+   "bytes": 3445
+  },
+  {
+   "id": 964238,
+   "grupo": 830,
+   "nome": "Place grids into a project and control grid heads display.",
+   "strings": [
+    "Place grids into a project and control grid heads display.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_ADDGRIDS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 949
+  },
+  {
+   "id": 964239,
+   "grupo": 830,
+   "nome": "Create section views.",
+   "strings": [
+    "Create section views.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_SECTION",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 873
+  },
+  {
+   "id": 964240,
+   "grupo": 830,
+   "nome": "Place walls and doors into your project.",
+   "strings": [
+    "Place walls and doors into your project.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_WALLS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 907
+  },
+  {
+   "id": 964241,
+   "grupo": 830,
+   "nome": "Create a stair by sketching boundaries and risers.",
+   "strings": [
+    "Create a stair by sketching boundaries and risers.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_FAM_OBJECT_STAIRS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 945
+  },
+  {
+   "id": 964242,
+   "grupo": 830,
+   "nome": "Create a curtain wall.",
+   "strings": [
+    "Create a curtain wall.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_CURTAINWALLS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 885
+  },
+  {
+   "id": 964525,
+   "grupo": 830,
+   "nome": "Add aligned dimensions to a view.",
+   "strings": [
+    "Add aligned dimensions to a view.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_ANNOTATIONS_DIMENSION_ALIGNED",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 935
+  },
+  {
+   "id": 964539,
+   "grupo": 830,
+   "nome": "Add text notes to a view.",
+   "strings": [
+    "Add text notes to a view.",
+    "Floor Plan Level 1",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_TEXTNOTE",
+    "01 - Basic",
+    "How do I"
+   ],
+   "lista_strings": [],
+   "bytes": 39429
+  },
+  {
+   "id": 970378,
+   "grupo": 830,
+   "nome": "Add doors to the project.",
+   "strings": [
+    "Add doors to the project.",
+    "Floor Plan Level 2",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_DOORS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 877
+  },
+  {
+   "id": 970380,
+   "grupo": 830,
+   "nome": "Add a window to the project.",
+   "strings": [
+    "Add a window to the project.",
+    "Floor Plan Level 2",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_WINDOWS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 887
+  },
+  {
+   "id": 970384,
+   "grupo": 830,
+   "nome": "Add a color fill legend.",
+   "strings": [
+    "Add a color fill legend.",
+    "Floor Plan Level 2",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_OBJECTS_ROOM_FILL",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 899
+  },
+  {
+   "id": 970388,
+   "grupo": 830,
+   "nome": "Add a dor to a curtain wall.",
+   "strings": [
+    "Add a dor to a curtain wall.",
+    "Floor Plan Level 2",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_DOORTOCW",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 903
+  },
+  {
+   "id": 970472,
+   "grupo": 830,
+   "nome": "Create a color scheme for a view.",
+   "strings": [
+    "Create a color scheme for a view.",
+    "Floor Plan Level 2",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_CREATECOLORSCHEME",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 923
+  },
+  {
+   "id": 970476,
+   "grupo": 830,
+   "nome": "Create a topographic surface.",
+   "strings": [
+    "Create a topographic surface.",
+    "Floor Plans - Site",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_SITE_TOPO_SURFACE",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 917
+  },
+  {
+   "id": 970480,
+   "grupo": 830,
+   "nome": "Add Property lines to a site plan.",
+   "strings": [
+    "Add Property lines to a site plan.",
+    "Floor Plans - Site",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_PROPLINES",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 917
+  },
+  {
+   "id": 970482,
+   "grupo": 830,
+   "nome": "Add a building pad to a toposurface.",
+   "strings": [
+    "Add a building pad to a toposurface.",
+    "Floor Plans - Site",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_BUILDINGPAD",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 925
+  },
+  {
+   "id": 970484,
+   "grupo": 830,
+   "nome": "Add plants and entourage to the project.",
+   "strings": [
+    "Add plants and entourage to the project.",
+    "Floor Plan - Site",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_PLACE_PLANTS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 919
+  },
+  {
+   "id": 970492,
+   "grupo": 830,
+   "nome": "Add levels to the project.",
+   "strings": [
+    "Add levels to the project.",
+    "Elevations - East",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_ADDING_LEVELS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 893
+  },
+  {
+   "id": 970494,
+   "grupo": 830,
+   "nome": "Create a frestanding railing.",
+   "strings": [
+    "Create a frestanding railing.",
+    "Elevation - East",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_RAILING",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 885
+  },
+  {
+   "id": 970496,
+   "grupo": 830,
+   "nome": "Offset level head from the level line.",
+   "strings": [
+    "Offset level head from the level line.",
+    "Elevations - East",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_LEVELOFFSET",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 927
+  },
+  {
+   "id": 970498,
+   "grupo": 830,
+   "nome": "Control the way the site looks in section.",
+   "strings": [
+    "Control the way the site looks in section.",
+    "Elevation - East",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_SITESETTINGS",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 927
+  },
+  {
+   "id": 970500,
+   "grupo": 830,
+   "nome": "Assign a color gradient as a background.",
+   "strings": [
+    "Assign a color gradient as a background.",
+    "Elevations - East",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HDIALOG_REVIT_MODELGRAPHICSSTYLE",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 951
+  },
+  {
+   "id": 970504,
+   "grupo": 830,
+   "nome": "Create a roof.",
+   "strings": [
+    "Create a roof.",
+    "Sections - Building Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_ROOFS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 873
+  },
+  {
+   "id": 970506,
+   "grupo": 830,
+   "nome": "Add a callout",
+   "strings": [
+    "Add a callout",
+    "Sections - Building Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_VIEW_NEW_CALLOUT",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 887
+  },
+  {
+   "id": 970508,
+   "grupo": 830,
+   "nome": "Create an element with compound structure.",
+   "strings": [
+    "Create an element with compound structure.",
+    "Sections - Building Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_COMPOUNDSTRUCTURE",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 967
+  },
+  {
+   "id": 970510,
+   "grupo": 830,
+   "nome": "Control the cut and projected lineweights of elements.",
+   "strings": [
+    "Control the cut and projected lineweights of elements.",
+    "Sections - Building Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_MODIFYOBJECTSTYLES",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 985
+  },
+  {
+   "id": 970518,
+   "grupo": 830,
+   "nome": "Create a detail view.",
+   "strings": [
+    "Create a detail view.",
+    "Sections (Wall Section) - Typ. Wall Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_CREATEDETAILVIEW",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 941
+  },
+  {
+   "id": 970526,
+   "grupo": 830,
+   "nome": "Set the scale of a view.",
+   "strings": [
+    "Set the scale of a view.",
+    "Sections (Wall Section) - Typ. Wall Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_VIEW_SCALE",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 935
+  },
+  {
+   "id": 970530,
+   "grupo": 830,
+   "nome": "Specify the detail level of a view",
+   "strings": [
+    "Specify the detail level of a view",
+    "Sections (Wall Section) -Typ. Wall Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HControl_Revit_ViewFrameDetaillevel",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 1867
+  },
+  {
+   "id": 970834,
+   "grupo": 830,
+   "nome": "Add insulation in a detail view.",
+   "strings": [
+    "Add insulation in a detail view.",
+    "Detail Views - Typ. Wall Roof Connection",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_OBJECTS_INSULATION",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 1385
+  },
+  {
+   "id": 971595,
+   "grupo": 830,
+   "nome": "Add a detail component to a view.",
+   "strings": [
+    "Add a detail component to a view.",
+    "Detail Views - Typ. Wall Roof Connection",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_DETAILCOMPONENT",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 957
+  },
+  {
+   "id": 971597,
+   "grupo": 830,
+   "nome": "Add detail,ines to a view.",
+   "strings": [
+    "Add detail,ines to a view.",
+    "Detail Views - Typ. Wall Roof Connection",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_DETAILLINES",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 935
+  },
+  {
+   "id": 972381,
+   "grupo": 830,
+   "nome": "Control the size of a view.",
+   "strings": [
+    "Control the size of a view.",
+    "Sheets - A001",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HControl_Revit_CropRegionBarModify",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 929
+  },
+  {
+   "id": 972385,
+   "grupo": 830,
+   "nome": "Create renderings.",
+   "strings": [
+    "Create renderings.",
+    "Sheet - A001",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_CREATERENDERING",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 885
+  },
+  {
+   "id": 972389,
+   "grupo": 830,
+   "nome": "Create a 3d section view.",
+   "strings": [
+    "Create a 3d section view.",
+    "Sheet - A001",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_CHANGEEXTENTS",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 887
+  },
+  {
+   "id": 972393,
+   "grupo": 830,
+   "nome": "Add a sheet to the project.",
+   "strings": [
+    "Add a sheet to the project.",
+    "Sheet - A001",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=HID_VIEW_NEW_SHEET",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 1152
+  },
+  {
+   "id": 972398,
+   "grupo": 830,
+   "nome": "Use the sun path.",
+   "strings": [
+    "Use the sun path.",
+    "Sheet - A101",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_USESUNPATH",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 865
+  },
+  {
+   "id": 972402,
+   "grupo": 830,
+   "nome": "Create a schedule.",
+   "strings": [
+    "Create a schedule.",
+    "Sheet - A101",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_SPACE_SCHED",
+    "02 - Intermediate"
+   ],
+   "lista_strings": [],
+   "bytes": 1148
+  },
+  {
+   "id": 972407,
+   "grupo": 830,
+   "nome": "Add views to a sheet.",
+   "strings": [
+    "Add views to a sheet.",
+    "Sheet - A102",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_ADD_VIEW_TO_SHEET",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 881
+  },
+  {
+   "id": 972417,
+   "grupo": 830,
+   "nome": "Adjust rendered image exposure.",
+   "strings": [
+    "Adjust rendered image exposure.",
+    "Sheet - A001",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_RENDEREDEXPOSURE",
+    "03 - Advanced"
+   ],
+   "lista_strings": [],
+   "bytes": 905
+  },
+  {
+   "id": 972953,
+   "grupo": 830,
+   "nome": "Add floors to the project",
+   "strings": [
+    "Add floors to the project",
+    "Sections - Building Section",
+    "http://help.autodesk.com/view/RVT/2016/ENU/?contextId=EXLINK_FLOORS",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 897
+  },
+  {
+   "id": 973780,
+   "grupo": 830,
+   "nome": "Sheets - A001",
+   "strings": [
+    "Sheets - A001",
+    "01 - Basic"
+   ],
+   "lista_strings": [],
+   "bytes": 611766
+  },
+  {
+   "id": 981963,
+   "grupo": 828,
+   "nome": "ÿ3",
+   "strings": [
+    "ÿ3"
+   ],
+   "lista_strings": [],
+   "bytes": 4807
+  },
+  {
+   "id": 982743,
+   "grupo": 828,
+   "nome": "ÿG",
+   "strings": [
+    "ÿG",
+    "W600XD600",
+    "12490.Y3"
+   ],
+   "lista_strings": [],
+   "bytes": 5551
+  },
+  {
+   "id": 983518,
+   "grupo": 828,
+   "nome": "ÿG",
+   "strings": [
+    "ÿG",
+    "W600XD600 2",
+    "12490.Y3"
+   ],
+   "lista_strings": [],
+   "bytes": 18685
+  },
+  {
+   "id": 985756,
+   "grupo": 828,
+   "nome": "ÿz",
+   "strings": [
+    "ÿz"
+   ],
+   "lista_strings": [],
+   "bytes": 21682
+  },
+  {
+   "id": 988018,
+   "grupo": 828,
+   "nome": "ÿz",
+   "strings": [
+    "ÿz"
+   ],
+   "lista_strings": [],
+   "bytes": 6257
+  },
+  {
+   "id": 990646,
+   "grupo": 828,
+   "nome": "ÖÀ",
+   "strings": [
+    "ÖÀ",
+    "ÖÀ"
+   ],
+   "lista_strings": [],
+   "bytes": 600
+  },
+  {
+   "id": 990648,
+   "grupo": 828,
+   "nome": "ÖÀ",
+   "strings": [
+    "ÖÀ",
+    "ÖÀ",
+    "ÿê"
+   ],
+   "lista_strings": [],
+   "bytes": 12971
+  },
+  {
+   "id": 993076,
+   "grupo": 828,
+   "nome": "ÿ[",
+   "strings": [
+    "ÿ[",
+    "Wine Bottles",
+    "12100"
+   ],
+   "lista_strings": [],
+   "bytes": 4462
+  },
+  {
+   "id": 993980,
+   "grupo": 828,
+   "nome": "ÿ,",
+   "strings": [
+    "ÿ,"
+   ],
+   "lista_strings": [],
+   "bytes": 3817
+  },
+  {
+   "id": 994767,
+   "grupo": 828,
+   "nome": "ÿ3",
+   "strings": [
+    "ÿ3",
+    "Fine China - Plate"
+   ],
+   "lista_strings": [],
+   "bytes": 3446
+  },
+  {
+   "id": 994782,
+   "grupo": 828,
+   "nome": "ÿ<",
+   "strings": [
+    "ÿ<"
+   ],
+   "lista_strings": [],
+   "bytes": 6225
+  },
+  {
+   "id": 996866,
+   "grupo": 828,
+   "nome": "ÿF",
+   "strings": [
+    "ÿF",
+    "Water Glass"
+   ],
+   "lista_strings": [],
+   "bytes": 4182
+  },
+  {
+   "id": 997122,
+   "grupo": 828,
+   "nome": "ÿ3",
+   "strings": [
+    "ÿ3"
+   ],
+   "lista_strings": [],
+   "bytes": 3412
+  },
+  {
+   "id": 997123,
+   "grupo": 828,
+   "nome": "ÿF",
+   "strings": [
+    "ÿF"
+   ],
+   "lista_strings": [],
+   "bytes": 8459
+  },
+  {
+   "id": 997883,
+   "grupo": 828,
+   "nome": "ÿu",
+   "strings": [
+    "ÿu"
+   ],
+   "lista_strings": [],
+   "bytes": 18385
+  },
+  {
+   "id": 1080651,
+   "grupo": 826,
+   "nome": "M_RPC Beetle",
+   "strings": [
+    "M_RPC Beetle",
+    "RPC Beetle-0000-CAN-ENU",
+    "{2, 15},{39, RPC-16-0U6E-L4EG-ENH1-J3KF-SVEL-0TX4-C0},{1, 0},{1, 0},{2, 46},{1, 8},{5, Color},{1, 0},{1, 0},{3, 0.8},{3, 0.8},{3, 0.8},{1, 8},{7, BBoxMin},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{1, 8},{7, BBoxMax},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{2, 11},{9, RPCTypeId},{1, 0},{1, 0},{39, RPC-16-0U6E-L4EG-ENH1-J3KF-SVEL-0TX4-C0},{1, 6},{14, RPCPlantHe"
+   ],
+   "lista_strings": [],
+   "bytes": 15424
+  },
+  {
+   "id": 1081990,
+   "grupo": 826,
+   "nome": "RPC Female",
+   "strings": [
+    "RPC Female",
+    "RPC Female-0000-USA-ENU",
+    "{2, 15},{22, RPC-8-FUM5-CKXX-U6B5-E},{1, 0},{1, 0},{2, 38},{1, 8},{5, Color},{1, 0},{1, 0},{3, 0.8},{3, 0.8},{3, 0.8},{1, 8},{7, BBoxMin},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{1, 8},{7, BBoxMax},{1, 0},{1, 0},{1, 0},{1, 0},{1, 0},{2, 11},{9, RPCTypeId},{1, 0},{1, 0},{22, RPC-8-FUM5-CKXX-U6B5-E},{1, 6},{14, RPCPlantHeight},{1, 0},{1, 0},{4, 5.75},{2, 11"
+   ],
+   "lista_strings": [],
+   "bytes": 74333
+  },
+  {
+   "id": 23,
+   "grupo": 822,
+   "nome": "D{f",
+   "strings": [
+    "D{f",
+    "ul{",
+    "n{",
+    "ip",
+    "n{",
+    "ip",
+    "n{",
+    "ipScC",
+    "so",
+    "1 t ib"
+   ],
+   "lista_strings": [],
+   "bytes": 5862
+  },
+  {
+   "id": 754997272,
+   "grupo": null,
+   "nome": "X-",
+   "strings": [
+    "X-",
+    "D{f",
+    "ul{nWcl.",
+    "c l .",
+    "c l .",
+    "n{",
+    "ipScC",
+    "so",
+    "1 t ib",
+    "crX_b"
+   ],
+   "lista_strings": [],
+   "bytes": 5896
+  },
+  {
+   "id": 25,
+   "grupo": 822,
+   "nome": "X-",
+   "strings": [
+    "X-",
+    "D{f",
+    "ul{nRr",
+    "c l .",
+    "c l .",
+    "n{",
+    "ipScC",
+    "so",
+    "1 t ib",
+    "crX_b"
+   ],
+   "lista_strings": [],
+   "bytes": 5896
+  },
+  {
+   "id": 754997274,
+   "grupo": null,
+   "nome": "X-",
+   "strings": [
+    "X-",
+    "So,",
+    " Lis{ G.",
+    "G.",
+    "G.",
+    "G.",
+    "G.",
+    "zingScC",
+    "so",
+    "X-"
+   ],
+   "lista_strings": [],
+   "bytes": 3875
+  },
+  {
+   "id": 754997277,
+   "grupo": null,
+   "nome": "X-",
+   "strings": [
+    "X-",
+    "PCc1 ",
+    "s,rCcrX",
+    "SX1",
+    "SX1",
+    "n{",
+    "ipScC",
+    "so",
+    "1 t ib",
+    "crX_b"
+   ],
+   "lista_strings": [],
+   "bytes": 5878
+  },
+  {
+   "id": 414,
+   "grupo": 822,
+   "nome": "X-",
+   "strings": [
+    "X-",
+    "Cosmo",
+    " b",
+    "7ck",
+    "7ck",
+    "Cosmo",
+    "c so",
+    "rX",
+    "c so",
+    "rX"
+   ],
+   "lista_strings": [],
+   "bytes": 12217
+  },
+  {
+   "id": 415,
+   "grupo": 822,
+   "nome": "X-",
+   "strings": [
+    "X-",
+    ",{Conc",
+    " t ",
+    "soso",
+    "rX",
+    "n7",
+    ",{Conc",
+    " t ",
+    "c so",
+    "rX Un7"
+   ],
+   "lista_strings": [],
+   "bytes": 12197
+  },
+  {
+   "id": 416,
+   "grupo": 822,
+   "nome": "1\\mats\\steelplt.png",
+   "strings": [
+    "1\\mats\\steelplt.png",
+    "1\\mats\\steelplt.png",
+    "Light gauge steel framing, thermal air layer",
+    "Metal Stud Layer",
+    "Metal",
+    "Metal",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 13018
+  },
+  {
+   "id": 417,
+   "grupo": 822,
+   "nome": "1\\mats\\finishes.laminate.plywood.jpg",
+   "strings": [
+    "1\\mats\\finishes.laminate.plywood.jpg",
+    "Plywood, sheathing grade",
+    "Plywood, Sheathing",
+    "J@",
+    "Wood",
+    "Wood",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 9192
+  },
+  {
+   "id": 418,
+   "grupo": 822,
+   "nome": "Air",
+   "strings": [
+    "Air",
+    "Air",
+    "ÿ@",
+    "Gas",
+    "Gas",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition"
+   ],
+   "lista_strings": [],
+   "bytes": 5410
+  },
+  {
+   "id": 419,
+   "grupo": 822,
+   "nome": "physical material",
+   "strings": [
+    "physical material",
+    "Air Infiltration Barrier",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mat"
+   ],
+   "lista_strings": [],
+   "bytes": 5900
+  },
+  {
+   "id": 421,
+   "grupo": 822,
+   "nome": "Polyethylene film membrane",
+   "strings": [
+    "Polyethylene film membrane",
+    "Vapour Retarder",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mat"
+   ],
+   "lista_strings": [],
+   "bytes": 5900
+  },
+  {
+   "id": 423,
+   "grupo": 822,
+   "nome": "1\\mats\\finishes.gypsum board.painted.white.jpg",
+   "strings": [
+    "1\\mats\\finishes.gypsum board.painted.white.jpg",
+    "1\\mats\\finishes.gypsum board.painted.white.bump.jpg",
+    "Gypsum Wall Board",
+    "Gypsum Wall Board",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 13370
+  },
+  {
+   "id": 519,
+   "grupo": 822,
+   "nome": "1\\mats\\sitework.planting.gravel.mixed.png",
+   "strings": [
+    "1\\mats\\sitework.planting.gravel.mixed.png",
+    "1\\mats\\sitework.planting.gravel.mixed.bump.png",
+    "Soil",
+    "Earth",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 13156
+  },
+  {
+   "id": 523,
+   "grupo": 822,
+   "nome": "physical material",
+   "strings": [
+    "physical material",
+    "Concrete, Cast In Situ",
+    "Concrete",
+    "Concrete",
+    "ConcreteSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Concrete/ConcreteAdva"
+   ],
+   "lista_strings": [],
+   "bytes": 12439
+  },
+  {
+   "id": 758,
+   "grupo": 822,
+   "nome": "Default Floor",
+   "strings": [
+    "Default Floor",
+    "Miscellaneous",
+    "Miscellaneous",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedU"
+   ],
+   "lista_strings": [],
+   "bytes": 5898
+  },
+  {
+   "id": 792,
+   "grupo": 822,
+   "nome": "EPDM roof membrane",
+   "strings": [
+    "EPDM roof membrane",
+    "Roofing, EPDM Membrane",
+    "Generic",
+    "Generic",
+    "PlasticVinylSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/PlasticVinyl/Pl"
+   ],
+   "lista_strings": [],
+   "bytes": 12899
+  },
+  {
+   "id": 865,
+   "grupo": 822,
+   "nome": "Bituminous roofing material",
+   "strings": [
+    "Bituminous roofing material",
+    "Asphalt, Bitumen",
+    "Generic",
+    "Generic",
+    "PlasticVinylSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/PlasticVinyl/Pl"
+   ],
+   "lista_strings": [],
+   "bytes": 12567
+  },
+  {
+   "id": 8798,
+   "grupo": 822,
+   "nome": "Phase - New",
+   "strings": [
+    "Phase - New",
+    "P@",
+    "System",
+    "System",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 5866
+  },
+  {
+   "id": 21116,
+   "grupo": 822,
+   "nome": "Door - Frame/Mullion",
+   "strings": [
+    "Door - Frame/Mullion",
+    "Wood",
+    "Wood",
+    "HardwoodSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Hardwood/HardwoodAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 12676
+  },
+  {
+   "id": 21208,
+   "grupo": 822,
+   "nome": "Door - Handle",
+   "strings": [
+    "Door - Handle",
+    "Miscellaneous",
+    "Miscellaneous",
+    "WallPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/WallPaint/wallPaintAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 4907
+  },
+  {
+   "id": 24561,
+   "grupo": 551,
+   "nome": "Radius",
+   "strings": [
+    "Radius"
+   ],
+   "lista_strings": [],
+   "bytes": 146
+  },
+  {
+   "id": 24562,
+   "grupo": 551,
+   "nome": "Name",
+   "strings": [
+    "Name"
+   ],
+   "lista_strings": [],
+   "bytes": 133
+  },
+  {
+   "id": 24822,
+   "grupo": 551,
+   "nome": "Name",
+   "strings": [
+    "Name"
+   ],
+   "lista_strings": [],
+   "bytes": 133
+  },
+  {
+   "id": 24824,
+   "grupo": 551,
+   "nome": "Elevation",
+   "strings": [
+    "Elevation"
+   ],
+   "lista_strings": [],
+   "bytes": 143
+  },
+  {
+   "id": 24826,
+   "grupo": 551,
+   "nome": "Radius",
+   "strings": [
+    "Radius"
+   ],
+   "lista_strings": [],
+   "bytes": 146
+  },
+  {
+   "id": 28017,
+   "grupo": 551,
+   "nome": "Width",
+   "strings": [
+    "Width"
+   ],
+   "lista_strings": [],
+   "bytes": 144
+  },
+  {
+   "id": 28018,
+   "grupo": 551,
+   "nome": "Height",
+   "strings": [
+    "Height"
+   ],
+   "lista_strings": [],
+   "bytes": 146
+  },
+  {
+   "id": 28744,
+   "grupo": 551,
+   "nome": "Width",
+   "strings": [
+    "Width"
+   ],
+   "lista_strings": [],
+   "bytes": 144
+  },
+  {
+   "id": 28745,
+   "grupo": 551,
+   "nome": "Height",
+   "strings": [
+    "Height"
+   ],
+   "lista_strings": [],
+   "bytes": 150
+  },
+  {
+   "id": 51455,
+   "grupo": 822,
+   "nome": "Poche",
+   "strings": [
+    "Poche",
+    "ÿ@",
+    "System",
+    "System",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 5850
+  },
+  {
+   "id": 52139,
+   "grupo": 822,
+   "nome": "Default Mass Floor",
+   "strings": [
+    "Default Mass Floor",
+    "Ì@",
+    "Miscellaneous",
+    "Miscellaneous",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdva"
+   ],
+   "lista_strings": [],
+   "bytes": 5904
+  },
+  {
+   "id": 102856,
+   "grupo": 822,
+   "nome": "Generic Plastic",
+   "strings": [
+    "Generic Plastic",
+    "Plastic",
+    "Plastic",
+    "Plastic",
+    "PlasticVinylSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/PlasticVinyl/PlasticVinylAdvancedUI."
+   ],
+   "lista_strings": [],
+   "bytes": 12459
+  },
+  {
+   "id": 103647,
+   "grupo": 822,
+   "nome": "Default Light Source",
+   "strings": [
+    "Default Light Source",
+    "System",
+    "System",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 5884
+  },
+  {
+   "id": 105006,
+   "grupo": 822,
+   "nome": "Phase - Demo",
+   "strings": [
+    "Phase - Demo",
+    "System",
+    "System",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml",
+    "AssetLib"
+   ],
+   "lista_strings": [],
+   "bytes": 5868
+  },
+  {
+   "id": 105007,
+   "grupo": 822,
+   "nome": "Phase - Exist",
+   "strings": [
+    "Phase - Exist",
+    "System",
+    "System",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml",
+    "AssetLi"
+   ],
+   "lista_strings": [],
+   "bytes": 5872
+  },
+  {
+   "id": 111600,
+   "grupo": 822,
+   "nome": "Default Form",
+   "strings": [
+    "Default Form",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedU"
+   ],
+   "lista_strings": [],
+   "bytes": 5897
+  },
+  {
+   "id": 123301,
+   "grupo": 822,
+   "nome": "Default Mass Shade",
+   "strings": [
+    "Default Mass Shade",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 5884
+  },
+  {
+   "id": 123307,
+   "grupo": 822,
+   "nome": "Default Mass Opening",
+   "strings": [
+    "Default Mass Opening",
+    "ÿ@",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 5888
+  },
+  {
+   "id": 123310,
+   "grupo": 822,
+   "nome": "Pinus Echinata",
+   "strings": [
+    "Pinus Echinata",
+    "Softwood, Lumber",
+    "Wood",
+    "Wood",
+    "HardwoodSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Hardwood/HardwoodAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 11992
+  },
+  {
+   "id": 123311,
+   "grupo": 822,
+   "nome": "Clear glazing",
+   "strings": [
+    "Clear glazing",
+    "Glass, Clear Glazing",
+    "À@",
+    "Glass",
+    "Glass",
+    "GlazingSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition"
+   ],
+   "lista_strings": [],
+   "bytes": 3897
+  },
+  {
+   "id": 125009,
+   "grupo": 551,
+   "nome": "Filled",
+   "strings": [
+    "Filled"
+   ],
+   "lista_strings": [],
+   "bytes": 137
+  },
+  {
+   "id": 125016,
+   "grupo": 551,
+   "nome": "View Name",
+   "strings": [
+    "View Name"
+   ],
+   "lista_strings": [],
+   "bytes": 143
+  },
+  {
+   "id": 125017,
+   "grupo": 551,
+   "nome": "Ref",
+   "strings": [
+    "Ref"
+   ],
+   "lista_strings": [],
+   "bytes": 131
+  },
+  {
+   "id": 125021,
+   "grupo": 551,
+   "nome": "Arrow Type",
+   "strings": [
+    "Arrow Type"
+   ],
+   "lista_strings": [],
+   "bytes": 149
+  },
+  {
+   "id": 128294,
+   "grupo": 551,
+   "nome": "Filled",
+   "strings": [
+    "Filled"
+   ],
+   "lista_strings": [],
+   "bytes": 137
+  },
+  {
+   "id": 128301,
+   "grupo": 551,
+   "nome": "View Name",
+   "strings": [
+    "View Name"
+   ],
+   "lista_strings": [],
+   "bytes": 143
+  },
+  {
+   "id": 128302,
+   "grupo": 551,
+   "nome": "Ref",
+   "strings": [
+    "Ref",
+    "Carbon steel",
+    "Steel, Carbon",
+    "Metal",
+    "Metal",
+    "MetalSchema",
+    "assetlibrary_base.fbx",
+    "AdvancedUIDefinition",
+    "Mats/Metal/metalAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 255820
+  },
+  {
+   "id": 172415,
+   "grupo": 822,
+   "nome": "1\\mats\\sitework.planting.gravel.mixed.png",
+   "strings": [
+    "1\\mats\\sitework.planting.gravel.mixed.png",
+    "1\\mats\\sitework.planting.gravel.mixed.bump.png",
+    "Dirt - Dark Brown",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 192486
+  },
+  {
+   "id": 198369,
+   "grupo": 822,
+   "nome": "K10",
+   "strings": [
+    "K10",
+    "12.5mm Plasterboard fixed to OSB",
+    "Finishes - Interior - Plasterboard",
+    "Unassigned",
+    "Unassigned",
+    "WallPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition"
+   ],
+   "lista_strings": [],
+   "bytes": 4585
+  },
+  {
+   "id": 198370,
+   "grupo": 822,
+   "nome": "G20",
+   "strings": [
+    "G20",
+    "Rendering appearance not upgraded ",
+    "Wood - Stud Layer",
+    "Unassigned",
+    "Unassigned",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition"
+   ],
+   "lista_strings": [],
+   "bytes": 16804
+  },
+  {
+   "id": 198374,
+   "grupo": 822,
+   "nome": "1\\mats\\woods and plastics.finish carpentry.wood.paneling.1.jpg",
+   "strings": [
+    "1\\mats\\woods and plastics.finish carpentry.wood.paneling.1.jpg",
+    "1\\mats\\woods and plastics.finish carpentry.wood.paneling.1.bump.jpg",
+    "H20/150",
+    "Rendering appearance not upgraded ",
+    "22mm Kiln Dried Timber Cladding",
+    "Finishes - Exterior - Timber Cladding",
+    "Wood",
+    "Wood",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 356992
+  },
+  {
+   "id": 269499,
+   "grupo": 822,
+   "nome": "www.revitcomponents.comRendering appearance not upgraded ",
+   "strings": [
+    "www.revitcomponents.comRendering appearance not upgraded ",
+    "Wood_Walnut black",
+    "Wood",
+    "Wood",
+    "HardwoodSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Hardwood/HardwoodAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 214600
+  },
+  {
+   "id": 494352,
+   "grupo": 822,
+   "nome": "1\\mats\\hone.png",
+   "strings": [
+    "1\\mats\\hone.png",
+    "1\\mats\\hone.png",
+    "Rendering appearance not upgraded Rendering appearance not upgraded Rendering appearance not upgraded ",
+    "SH_Metal - Steel",
+    "Metal",
+    "Metal",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 49615
+  },
+  {
+   "id": 581327,
+   "grupo": 822,
+   "nome": "Rigid foam insulation board",
+   "strings": [
+    "Rigid foam insulation board",
+    "Rigid insulation",
+    "Generic",
+    "Generic",
+    "WallPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/WallPaint/wallPaintAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 4495
+  },
+  {
+   "id": 581329,
+   "grupo": 822,
+   "nome": "Damp-proofing",
+   "strings": [
+    "Damp-proofing",
+    "Damp-proofing",
+    "Generic",
+    "Generic",
+    "WallPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/WallPaint/wallPaintAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 4455
+  },
+  {
+   "id": 581376,
+   "grupo": 822,
+   "nome": "Concrete slab topping",
+   "strings": [
+    "Concrete slab topping",
+    "Concrete, Sand/Cement Screed",
+    "Concrete",
+    "Concrete",
+    "ConcreteSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Concrete/Co"
+   ],
+   "lista_strings": [],
+   "bytes": 12459
+  },
+  {
+   "id": 581406,
+   "grupo": 822,
+   "nome": "Site - Hardcore",
+   "strings": [
+    "Site - Hardcore",
+    "Miscellaneous",
+    "Miscellaneous",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvance"
+   ],
+   "lista_strings": [],
+   "bytes": 5852
+  },
+  {
+   "id": 600660,
+   "grupo": 822,
+   "nome": "1\\mats\\concrete.cast-in-place.panels.reveal.smooth.jpg",
+   "strings": [
+    "1\\mats\\concrete.cast-in-place.panels.reveal.smooth.jpg",
+    "1\\mats\\concrete.cast-in-place.panels.reveal.smooth.bump.jpg",
+    "Precast aerated concrete",
+    "CL Concrete_ panels",
+    "Concrete",
+    "Concrete",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 21907
+  },
+  {
+   "id": 672517,
+   "grupo": 822,
+   "nome": "Main body",
+   "strings": [
+    "Main body",
+    "ý@",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint/MetallicPaintAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 5727
+  },
+  {
+   "id": 672519,
+   "grupo": 822,
+   "nome": "Logo",
+   "strings": [
+    "Logo",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint/MetallicPaintAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 5699
+  },
+  {
+   "id": 672521,
+   "grupo": 822,
+   "nome": "Black panel",
+   "strings": [
+    "Black panel",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint/MetallicPaintAdvancedUI.xml",
+    "Ass"
+   ],
+   "lista_strings": [],
+   "bytes": 5721
+  },
+  {
+   "id": 672522,
+   "grupo": 822,
+   "nome": "Door",
+   "strings": [
+    "Door",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint/MetallicPaintAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 5731
+  },
+  {
+   "id": 672524,
+   "grupo": 822,
+   "nome": "Buttons",
+   "strings": [
+    "Buttons",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint/MetallicPaintAdvancedUI.xml",
+    "AssetLi"
+   ],
+   "lista_strings": [],
+   "bytes": 5711
+  },
+  {
+   "id": 672526,
+   "grupo": 822,
+   "nome": "Fascia",
+   "strings": [
+    "Fascia",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint/MetallicPaintAdvancedUI.xml",
+    "AssetLib"
+   ],
+   "lista_strings": [],
+   "bytes": 5721
+  },
+  {
+   "id": 672675,
+   "grupo": 822,
+   "nome": "Plinth",
+   "strings": [
+    "Plinth",
+    "Miscellaneous",
+    "Miscellaneous",
+    "PlasticVinylSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/PlasticVinyl/PlasticVinylAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 137940
+  },
+  {
+   "id": 678541,
+   "grupo": 822,
+   "nome": "Cleansteel",
+   "strings": [
+    "Cleansteel",
+    "Miscellaneous",
+    "Miscellaneous",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 5400
+  },
+  {
+   "id": 678542,
+   "grupo": 822,
+   "nome": "Black Plastic",
+   "strings": [
+    "Black Plastic",
+    "Glass",
+    "Glass",
+    "GlazingSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Glazing/GlazingAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 97397
+  },
+  {
+   "id": 684483,
+   "grupo": 822,
+   "nome": "Metal",
+   "strings": [
+    "Metal",
+    "ô@",
+    "Metal",
+    "Metal",
+    "MetalSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Metal/metalAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 12687
+  },
+  {
+   "id": 684487,
+   "grupo": 822,
+   "nome": "Metal 1",
+   "strings": [
+    "Metal 1",
+    "Metal",
+    "Metal",
+    "MetalSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Metal/metalAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 12687
+  },
+  {
+   "id": 684546,
+   "grupo": 822,
+   "nome": "Metal 2",
+   "strings": [
+    "Metal 2",
+    "À@",
+    "Metal",
+    "Metal",
+    "MetalSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Metal/metalAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 74484
+  },
+  {
+   "id": 690038,
+   "grupo": 822,
+   "nome": "1\\mats\\finishes.masonry flooring.terrazzo.white.jpg",
+   "strings": [
+    "1\\mats\\finishes.masonry flooring.terrazzo.white.jpg",
+    "Terrazzo flooring",
+    "Terrazzo",
+    "x@",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 9161
+  },
+  {
+   "id": 690039,
+   "grupo": 822,
+   "nome": "1\\mats\\finishes.masonry flooring.terrazzo.white.jpg",
+   "strings": [
+    "1\\mats\\finishes.masonry flooring.terrazzo.white.jpg",
+    "Terrazzo - Gray-White",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 15131
+  },
+  {
+   "id": 696740,
+   "grupo": 822,
+   "nome": "Stainless Steel 1",
+   "strings": [
+    "Stainless Steel 1",
+    "Metal",
+    "Metal",
+    "MetalSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Metal/metalAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 173364
+  },
+  {
+   "id": 713090,
+   "grupo": 822,
+   "nome": "1\\mats\\finishes.flooring.carpet.needlepunch.white.jpg",
+   "strings": [
+    "1\\mats\\finishes.flooring.carpet.needlepunch.white.jpg",
+    "1\\mats\\finishes.flooring.carpet.needlepunch.white.bump.jpg",
+    "Interior finish",
+    "Carpet (1)",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 207294
+  },
+  {
+   "id": 727812,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.brown.jpg",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.brown.jpg",
+    "1\\mats\\furnishings.fabrics.leather.bump.jpg",
+    "  ",
+    "  ",
+    "  ",
+    "  "
+   ],
+   "lista_strings": [],
+   "bytes": 76479
+  },
+  {
+   "id": 732646,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.png",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.png",
+    "1\\mats\\furnishings.fabrics.leather.black.bump.png",
+    "Chair Fabric",
+    "Generic",
+    "Generic",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 12819
+  },
+  {
+   "id": 732647,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.png",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.png",
+    "1\\mats\\furnishings.fabrics.leather.black.bump.png",
+    "Creased - Black",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 16512
+  },
+  {
+   "id": 732646,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.png",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.png",
+    "1\\mats\\furnishings.fabrics.leath",
+    "AD12",
+    "ÿi",
+    "Wer",
+    "AD12",
+    "ÿi",
+    "Wer",
+    "ImplementationGeneric",
+    "ImplementationMentalRay"
+   ],
+   "lista_strings": [],
+   "bytes": 3378
+  },
+  {
+   "id": 732646,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.png",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.png",
+    "1\\mats\\f",
+    "AD12",
+    "ÿi",
+    "Wer",
+    "AD12",
+    "ÿi",
+    "Wer",
+    "ImplementationGeneric",
+    "ImplementationMentalRa"
+   ],
+   "lista_strings": [],
+   "bytes": 8663
+  },
+  {
+   "id": 732647,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.png",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.png",
+    "1\\mats\\furnishings.fabrics.leather.black.bump.png",
+    "Creased - Black",
+    "GenericSchema",
+    ":_t",
+    "AD121",
+    "ÿtii",
+    "5e",
+    "ÿtii",
+    "/P"
+   ],
+   "lista_strings": [],
+   "bytes": 9631
+  },
+  {
+   "id": 732646,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.png",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.png",
+    ":v",
+    "AD12",
+    "ÿi",
+    "Wer",
+    "AD12",
+    "ÿi",
+    "Wer",
+    ":_t",
+    "AD121"
+   ],
+   "lista_strings": [],
+   "bytes": 3244
+  },
+  {
+   "id": 732646,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.black.p",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.black.p",
+    "rfb",
+    "generi",
+    "AD12",
+    "ÿi",
+    "Wer",
+    "AD12",
+    "ÿi",
+    "Wer",
+    ":_t"
+   ],
+   "lista_strings": [],
+   "bytes": 44779
+  },
+  {
+   "id": 772431,
+   "grupo": 822,
+   "nome": "Steel - SolarWorld",
+   "strings": [
+    "Steel - SolarWorld",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetalSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Metal/metalAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 13083
+  },
+  {
+   "id": 772432,
+   "grupo": 822,
+   "nome": "Glass - SolarWorld - Tempered Glass",
+   "strings": [
+    "Glass - SolarWorld - Tempered Glass",
+    "Û@",
+    "Glass",
+    "Glass",
+    "GlazingSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Glazing/GlazingAdvancedUI.xml"
+   ],
+   "lista_strings": [],
+   "bytes": 4027
+  },
+  {
+   "id": 772433,
+   "grupo": 822,
+   "nome": "Metal - SolarWorld - Support Framing - Black",
+   "strings": [
+    "Metal - SolarWorld - Support Framing - Black",
+    "Miscellaneous",
+    "Miscellaneous",
+    "MetallicPaintSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/MetallicPaint"
+   ],
+   "lista_strings": [],
+   "bytes": 5859
+  },
+  {
+   "id": 772435,
+   "grupo": 822,
+   "nome": "Metal - SolarWorld - Support Framing - Silver",
+   "strings": [
+    "Metal - SolarWorld - Support Framing - Silver",
+    "J@",
+    "Miscellaneous",
+    "Miscellaneous",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/Gene"
+   ],
+   "lista_strings": [],
+   "bytes": 13146
+  },
+  {
+   "id": 772436,
+   "grupo": 822,
+   "nome": "Glass - SolarWorld - Solar Cell - Black",
+   "strings": [
+    "Glass - SolarWorld - Solar Cell - Black",
+    "Glass",
+    "Glass",
+    "GlazingSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Glazing/GlazingAdvancedUI.xml",
+    "AssetLibID"
+   ],
+   "lista_strings": [],
+   "bytes": 4065
+  },
+  {
+   "id": 776787,
+   "grupo": 822,
+   "nome": "Metal - SolarWorld - BackSheet - White",
+   "strings": [
+    "Metal - SolarWorld - BackSheet - White",
+    "ë@",
+    "Miscellaneous",
+    "Miscellaneous",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)",
+    "AdvancedUIDefinition",
+    "Mats/Generic/GenericAdva"
+   ],
+   "lista_strings": [],
+   "bytes": 171221
+  },
+  {
+   "id": 808743,
+   "grupo": 822,
+   "nome": "  ",
+   "strings": [
+    "  ",
+    "þ   ",
+    "Render Appearance - Wood Walnut Natural Polished"
+   ],
+   "lista_strings": [],
+   "bytes": 47509
+  },
+  {
+   "id": 856950,
+   "grupo": 822,
+   "nome": "M_Room TagA",
+   "strings": [
+    "M_Room TagA",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Metric\\Annotations\\",
+    "Room Tag-0000-CAN-ENU",
+    "Room Tag",
+    "Room Tag With Area",
+    "Room Tag With Volume"
+   ],
+   "lista_strings": [],
+   "bytes": 4517
+  },
+  {
+   "id": 858857,
+   "grupo": 822,
+   "nome": "M_Window TagO",
+   "strings": [
+    "M_Window TagO",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Metric\\Annotations\\Architectural\\",
+    "Window Tag-0000-CAN-ENU",
+    "M_Window Tag"
+   ],
+   "lista_strings": [],
+   "bytes": 3512
+  },
+  {
+   "id": 862683,
+   "grupo": 822,
+   "nome": "M_Door TagO",
+   "strings": [
+    "M_Door TagO",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Metric\\Annotations\\Architectural\\",
+    "Door Tag-0000-CAN-ENU",
+    "M_Door Tag"
+   ],
+   "lista_strings": [],
+   "bytes": 3500
+  },
+  {
+   "id": 869760,
+   "grupo": 822,
+   "nome": "1\\mats\\sitework.planting.grass.thick.png",
+   "strings": [
+    "1\\mats\\sitework.planting.grass.thick.png",
+    "1\\mats\\sitework.planting.grass.thick.bump.png",
+    "Grass - Dark Rye(1)",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 23014
+  },
+  {
+   "id": 941623,
+   "grupo": 822,
+   "nome": "North Arrow 2C",
+   "strings": [
+    "North Arrow 2C",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Imperial\\Annotations\\",
+    "North Arrow 2-0000-USA-ENU",
+    "North Arrow 2"
+   ],
+   "lista_strings": [],
+   "bytes": 3830
+  },
+  {
+   "id": 948617,
+   "grupo": 822,
+   "nome": "Property Line TagI",
+   "strings": [
+    "Property Line TagI",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Imperial\\Annotations\\Civil\\",
+    "Property Line Tag-0000-USA-ENU",
+    "Degress Minutes Seconds",
+    "Decimal Degress"
+   ],
+   "lista_strings": [],
+   "bytes": 5040
+  },
+  {
+   "id": 956057,
+   "grupo": 822,
+   "nome": "1\\mats\\concrete.cast-in-place.panels.reveal.smooth.jpg",
+   "strings": [
+    "1\\mats\\concrete.cast-in-place.panels.reveal.smooth.jpg",
+    "1\\mats\\concrete.cast-in-place.panels.reveal.smooth.bump.jpg",
+    "Panels - Reveal Smooth",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 36853
+  },
+  {
+   "id": 956219,
+   "grupo": 822,
+   "nome": "1\\mats\\furnishings.fabrics.leather.brown.jpg",
+   "strings": [
+    "1\\mats\\furnishings.fabrics.leather.brown.jpg",
+    "1\\mats\\furnishings.fabrics.leather.bump.jpg",
+    "Brown",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 17871
+  },
+  {
+   "id": 959151,
+   "grupo": 822,
+   "nome": "Planting TagI",
+   "strings": [
+    "Planting TagI",
+    "C:\\ProgramData\\Autodesk\\RVT 2013\\Libraries\\US Imperial\\Annotations\\Civil\\",
+    "Planting Tag-0000-USA-ENU",
+    "Boxed",
+    "Standard"
+   ],
+   "lista_strings": [],
+   "bytes": 4659
+  },
+  {
+   "id": 974333,
+   "grupo": 822,
+   "nome": "Help Button",
+   "strings": [
+    "Help Button",
+    "Select for Help Link"
+   ],
+   "lista_strings": [],
+   "bytes": 7907
+  },
+  {
+   "id": 980944,
+   "grupo": 822,
+   "nome": "C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\Materials\\Textures\\3\\Mats\\Furnishings.Fabrics.Leather.Tan.jpg",
+   "strings": [
+    "C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\Materials\\Textures\\3\\Mats\\Furnishings.Fabrics.Leather.Tan.jpg",
+    "Leather - Tan",
+    "Leather",
+    "Leather",
+    "GenericSchema",
+    "assetlibrary_base.fbx",
+    "Standard",
+    "Douglas Fir (West)"
+   ],
+   "lista_strings": [],
+   "bytes": 26903
+  },
+  {
+   "id": 981573,
+   "grupo": 822,
+   "nome": "C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\Materials\\Textures\\3\\Mats\\Furnishings.Fabrics.Leather.Tan.jpg",
+   "strings": [
+    "C:\\Program Files (x86)\\Common Files\\Autodesk Shared\\Materials\\Textures\\3\\Mats\\Furnishings.Fabrics.Leather.Tan.jpg",
+    "Leather - Blue (1)",
+    "GenericSchema",
+    "assetlibrary_base.fbx"
+   ],
+   "lista_strings": [],
+   "bytes": 450902
+  },
+  {
+   "id": 998264,
+   "grupo": 822,
+   "nome": "A1 metric",
+   "strings": [
+    "A1 metric",
+    "C:\\Users\\hansonje\\Desktop\\",
+    "A1 metric-0000-CAN-ENU",
+    "A1 metric"
+   ],
+   "lista_strings": [],
+   "bytes": 32848
+  },
+  {
+   "id": 998271,
+   "grupo": 797,
+   "nome": "Arrow 30 Degree",
+   "strings": [
+    "Arrow 30 Degree"
+   ],
+   "lista_strings": [],
+   "bytes": 200
+  },
+  {
+   "id": 998273,
+   "grupo": 797,
+   "nome": "8mm",
+   "strings": [
+    "8mm",
+    "8mm",
+    "5 mm",
+    "dk",
+    "13 mm"
+   ],
+   "lista_strings": [],
+   "bytes": 190503
+  },
+  {
+   "id": 8482,
+   "grupo": 803,
+   "nome": "Rectangular Mullion",
+   "strings": [
+    "Rectangular Mullion"
+   ],
+   "lista_strings": [],
+   "bytes": 832
+  },
+  {
+   "id": 8483,
+   "grupo": 803,
+   "nome": "Circular Mullion",
+   "strings": [
+    "Circular Mullion"
+   ],
+   "lista_strings": [],
+   "bytes": 824
+  },
+  {
+   "id": 12609,
+   "grupo": 803,
+   "nome": "System Panel",
+   "strings": [
+    "System Panel"
+   ],
+   "lista_strings": [],
+   "bytes": 856
+  },
+  {
+   "id": 12613,
+   "grupo": 803,
+   "nome": "Empty System Panel",
+   "strings": [
+    "Empty System Panel"
+   ],
+   "lista_strings": [],
+   "bytes": 868
+  },
+  {
+   "id": 16209,
+   "grupo": 551,
+   "nome": "Width",
+   "strings": [
+    "Width"
+   ],
+   "lista_strings": [],
+   "bytes": 144
+  },
+  {
+   "id": 16210,
+   "grupo": 551,
+   "nome": "Height",
+   "strings": [
+    "Height"
+   ],
+   "lista_strings": [],
+   "bytes": 146
+  },
+  {
+   "id": 16321,
+   "grupo": 551,
+   "nome": "Diameter",
+   "strings": [
+    "Diameter"
+   ],
+   "lista_strings": [],
+   "bytes": 150
+  },
+  {
+   "id": 18134,
+   "grupo": 551,
+   "nome": "Width",
+   "strings": [
+    "Width"
+   ],
+   "lista_strings": [],
+   "bytes": 146
+  },
+  {
+   "id": 18428,
+   "grupo": 803,
+   "nome": "L Corner Mullion",
+   "strings": [
+    "L Corner Mullion"
+   ],
+   "lista_strings": [],
+   "bytes": 826
+  },
+  {
+   "id": 18432,
+   "grupo": 803,
+   "nome": "V Corner Mullion",
+   "strings": [
+    "V Corner Mullion"
+   ],
+   "lista_strings": [],
+   "bytes": 826
+  },
+  {
+   "id": 18436,
+   "grupo": 803,
+   "nome": "Trapezoid Corner Mullion",
+   "strings": [
+    "Trapezoid Corner Mullion"
+   ],
+   "lista_strings": [],
+   "bytes": 842
+  },
+  {
+   "id": 18440,
+   "grupo": 803,
+   "nome": "Quad Corner Mullion",
+   "strings": [
+    "Quad Corner Mullion"
+   ],
+   "lista_strings": [],
+   "bytes": 830
+  },
+  {
+   "id": 20055,
+   "grupo": 551,
+   "nome": "Width",
+   "strings": [
+    "Width"
+   ],
+   "lista_strings": [],
+   "bytes": 144
+  },
+  {
+   "id": 20056,
+   "grupo": 551,
+   "nome": "Thickness",
+   "strings": [
+    "Thickness"
+   ],
+   "lista_strings": [],
+   "bytes": 152
+  },
+  {
+   "id": 20361,
+   "grupo": 551,
+   "nome": "Thickness",
+   "strings": [
+    "Thickness"
+   ],
+   "lista_strings": [],
+   "bytes": 152
+  },
+  {
+   "id": 20362,
+   "grupo": 551,
+   "nome": "Height",
+   "strings": [
+    "Height"
+   ],
+   "lista_strings": [],
+   "bytes": 146
+  },
+  {
+   "id": 25978,
+   "grupo": 551,
+   "nome": "Baluster Material",
+   "strings": [
+    "Baluster Material"
+   ],
+   "lista_strings": [],
+   "bytes": 168
+  },
+  {
+   "id": 29200,
+   "grupo": 551,
+   "nome": "Joint Thickness",
+   "strings": [
+    "Joint Thickness"
+   ],
+   "lista_strings": [],
+   "bytes": 164
+  },
+  {
+   "id": 29201,
+   "grupo": 551,
+   "nome": "Width/Length",
+   "strings": [
+    "Width/Length"
+   ],
+   "lista_strings": [],
+   "bytes": 158
+  },
+  {
+   "id": 29202,
+   "grupo": 551,
+   "nome": "Height/Length",
+   "strings": [
+    "Height/Length"
+   ],
+   "lista_strings": [],
+   "bytes": 160
+  },
+  {
+   "id": 49579,
+   "grupo": 551,
+   "nome": "Section 1",
+   "strings": [
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49582,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49583,
+   "grupo": 551,
+   "nome": "Callout Tag 1",
+   "strings": [
+    "Callout Tag 1"
+   ],
+   "lista_strings": [],
+   "bytes": 155
+  },
+  {
+   "id": 49584,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Floor Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 176
+  },
+  {
+   "id": 49585,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Ceiling Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 180
+  },
+  {
+   "id": 49586,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 174
+  },
+  {
+   "id": 49587,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Detail View"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49588,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Drafting View"
+   ],
+   "lista_strings": [],
+   "bytes": 182
+  },
+  {
+   "id": 49589,
+   "grupo": 551,
+   "nome": "Elevation 1",
+   "strings": [
+    "Elevation 1"
+   ],
+   "lista_strings": [],
+   "bytes": 196
+  },
+  {
+   "id": 49592,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49593,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Elevation 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49594,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "3D View"
+   ],
+   "lista_strings": [],
+   "bytes": 170
+  },
+  {
+   "id": 49595,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Schedule"
+   ],
+   "lista_strings": [],
+   "bytes": 172
+  },
+  {
+   "id": 49596,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Sheet"
+   ],
+   "lista_strings": [],
+   "bytes": 166
+  },
+  {
+   "id": 49597,
+   "grupo": 551,
+   "nome": "Section 1",
+   "strings": [
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49600,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49601,
+   "grupo": 551,
+   "nome": "Callout Tag 1",
+   "strings": [
+    "Callout Tag 1"
+   ],
+   "lista_strings": [],
+   "bytes": 155
+  },
+  {
+   "id": 49602,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Floor Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 176
+  },
+  {
+   "id": 49603,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Ceiling Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 180
+  },
+  {
+   "id": 49604,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 174
+  },
+  {
+   "id": 49605,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Detail View"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49606,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Drafting View"
+   ],
+   "lista_strings": [],
+   "bytes": 182
+  },
+  {
+   "id": 49607,
+   "grupo": 551,
+   "nome": "Elevation 1",
+   "strings": [
+    "Elevation 1"
+   ],
+   "lista_strings": [],
+   "bytes": 196
+  },
+  {
+   "id": 49610,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49611,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Elevation 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49612,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "3D View"
+   ],
+   "lista_strings": [],
+   "bytes": 170
+  },
+  {
+   "id": 49613,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Schedule"
+   ],
+   "lista_strings": [],
+   "bytes": 172
+  },
+  {
+   "id": 49614,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Sheet"
+   ],
+   "lista_strings": [],
+   "bytes": 166
+  },
+  {
+   "id": 49615,
+   "grupo": 551,
+   "nome": "Section 1",
+   "strings": [
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49618,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49619,
+   "grupo": 551,
+   "nome": "Callout Tag 1",
+   "strings": [
+    "Callout Tag 1"
+   ],
+   "lista_strings": [],
+   "bytes": 155
+  },
+  {
+   "id": 49620,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Floor Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 176
+  },
+  {
+   "id": 49621,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Ceiling Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 180
+  },
+  {
+   "id": 49622,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 174
+  },
+  {
+   "id": 49623,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Detail View"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49624,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Drafting View"
+   ],
+   "lista_strings": [],
+   "bytes": 182
+  },
+  {
+   "id": 49625,
+   "grupo": 551,
+   "nome": "Elevation 1",
+   "strings": [
+    "Elevation 1"
+   ],
+   "lista_strings": [],
+   "bytes": 196
+  },
+  {
+   "id": 49628,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49629,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Elevation 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49630,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "3D View"
+   ],
+   "lista_strings": [],
+   "bytes": 170
+  },
+  {
+   "id": 49631,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Schedule"
+   ],
+   "lista_strings": [],
+   "bytes": 172
+  },
+  {
+   "id": 49632,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Sheet"
+   ],
+   "lista_strings": [],
+   "bytes": 166
+  },
+  {
+   "id": 49633,
+   "grupo": 551,
+   "nome": "Section 1",
+   "strings": [
+    "Section 1"
+   ],
+   "lista_strings": [],
+   "bytes": 178
+  },
+  {
+   "id": 49636,
+   "grupo": 551,
+   "nome": "Arial",
+   "strings": [
+    "Arial"
+   ],
+   "lista_strings": [],
+   "bytes": 135
+  },
+  {
+   "id": 49637,
+   "grupo": 551,
+   "nome": "Callout Tag 1",
+   "strings": [
+    "Callout Tag 1"
+   ],
+   "lista_strings": [],
+   "bytes": 155
+  },
+  {
+   "id": 49638,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Floor Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 176
+  },
+  {
+   "id": 49639,
+   "grupo": 551,
+   "nome": "Sim",
+   "strings": [
+    "Sim",
+    "Ceiling Plan"
+   ],
+   "lista_strings": [],
+   "bytes": 180
+  }
+ ],
+ "nota": "amostra truncada (400 primeiros com nome) — rode rvttool exporta para o completo"
+}

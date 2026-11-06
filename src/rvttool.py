@@ -17,6 +17,7 @@ Uso:
     python3 rvttool.py strings arquivo.rvt STREAM [min]  — strings UTF-16
     python3 rvttool.py verifica arquivo.rvt [STREAM]     — estatísticas de CRC
     python3 rvttool.py elementos arquivo.rvt [STREAM]    — resumo de elementos
+    python3 rvttool.py exporta arquivo.rvo [SAIDA] [STREAM] — JSON completo
 """
 import io
 import olefile
@@ -132,6 +133,10 @@ def main():
         cmd_verifica(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
     elif cmd == 'elementos':
         cmd_elementos(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
+    elif cmd == 'exporta':
+        cmd_exporta(rvt,
+                    sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',
+                    sys.argv[4] if len(sys.argv) > 4 else 'Partitions/3')
     else:
         print(__doc__)
         return 1
@@ -143,40 +148,43 @@ def main():
 # ---------------------------------------------------------------- elementos
 
 def parse_elemtable(data):
-    """Parser EXPERIMENTAL do Global/ElemTable (parcial — ver ISSUES.md).
+    """Decodifica o Global/ElemTable (árvore de elementos).
 
-    Gramática descoberta: header 18B (a7 04 09 1f); registros
-      [id][dup][flags][parent]  — parent == -1 encerra
-      + bloco [X][Y][T] (3 valores) quando parent != -1
-    O restante da tabela usa codificação própria ainda não decodificada.
+    Header 18B: a7 04 [count u16] 00 00 01 00 00 00 01 00 00 00 00 00 00 00
+    Registros:
+      raiz:  [id][id][0][-1]                      (16B)
+      normal:[id][id][0][parent][Q][0][-1]        (28B)
+    Retorna lista de (id, parent).
     """
-    if len(data) < 18 or data[0:4] != b'\xa7\x04\x09\x1f':
-        return []
-    vals = struct.unpack_from(f'<{(len(data)-18)//4}I', data, 18)
-    n = len(vals)
+    if len(data) < 18 or data[0:2] != b'\xa7\x04':
+        return [], 0
+    total = struct.unpack_from('<H', data, 2)[0]
+    n = (len(data) - 18) // 4
+    vals = struct.unpack_from(f'<{n}I', data, 18)
     out = []
     i = 0
-    while i + 3 < n:
-        a, b, f3, f4 = vals[i:i+4]
-        if a != b or a == 0 or a >= 2_000_000 or f3 >= 2_000_000:
+    while i + 3 < n and len(out) < total + 16:
+        a, b, f3, p = vals[i:i+4]
+        if a != b or f3 != 0 or a == 0 or a >= 4_000_000:
             i += 1
             continue
-        parent = -1 if f4 == 0xFFFFFFFF else f4
-        if parent >= 2_000_000:
-            i += 1
-            continue
-        out.append((a, parent))
-        i += 4
-        if parent != -1 and i + 2 < n:
-            i += 3  # bloco [X][Y][T]
-    return out
+        if p == 0xFFFFFFFF:
+            out.append((a, -1))
+            i += 4
+        else:
+            if p >= 4_000_000 or i + 6 >= n:
+                i += 1
+                continue
+            out.append((a, p))
+            i += 7
+    return out, total
 
 
 def cmd_elementos(rvt, stream='Partitions/3'):
     """Best-effort: árvore de elementos (ElemTable) + catálogo de strings."""
     import json
     et = read_stream(rvt, 'Global/ElemTable')['data']
-    entradas = parse_elemtable(et)
+    entradas, total_hdr = parse_elemtable(et)
     ids = sorted(set(a for a, _ in entradas))
     filhos = {}
     vistos = set()
@@ -195,8 +203,9 @@ def cmd_elementos(rvt, stream='Partitions/3'):
             continue
         strs.append(t)
     resumo = {
-        'AVISO': 'árvore de elementos extraída do ElemTable (gramática parcial, ver docs)'
+        'AVISO': 'árvore de elementos extraída do ElemTable (gramática parcial, ver docs)',
         'elementos_na_arvore': len(ids),
+        'count_no_header': total_hdr,
         'raizes': [a for a, p in entradas if p == -1][:20],
         'grupos_maiores': [(p, len(f)) for p, f in
                            sorted(filhos.items(), key=lambda kv: -len(kv[1]))[:10]],
@@ -207,6 +216,69 @@ def cmd_elementos(rvt, stream='Partitions/3'):
         'amostra_pranchas': sorted(set(s for s in strs if re.match(r'^\\d{4,5}\\.\\w', s)))[:20],
     }
     print(json.dumps(resumo, ensure_ascii=False, indent=2))
+
+
+# ---------------------------------------------------------------- exporta
+
+MK_ELEM = b'\x5d\x02\x01\x00\x00\x00'
+RE_UTF16 = re.compile(rb'(?:[\x20-\x7e\xc0-\xff]\x00){2,}')
+RE_STRLIST = re.compile(rb'\xff\xff\xff\xff\x02\x08(....)', re.S)
+
+
+def _strings_seg(seg, limite=1200, minimo=2):
+    out = []
+    for u in RE_UTF16.finditer(seg[:limite]):
+        try:
+            t = u.group().decode('utf-16-le')
+        except Exception:
+            continue
+        if len(t) >= minimo:
+            out.append(t)
+    return out
+
+
+def cmd_exporta(rvt, saida='elementos.json', stream='Partitions/3'):
+    """Extrai todos os elementos do banco: id, grupo, nome, strings, listas."""
+    import json
+    data = read_stream(rvt, stream)['data']
+    et = read_stream(rvt, 'Global/ElemTable')['data']
+    tbl = dict(parse_elemtable(et)[0])
+    pos = [m.start() for m in re.finditer(re.escape(MK_ELEM), data)]
+    els = []
+    for k, s in enumerate(pos):
+        fim = pos[k+1] if k+1 < len(pos) else min(s+8192, len(data))
+        eid = struct.unpack_from('<I', data, s+6)[0]
+        seg = data[s+10:fim]
+        strs = _strings_seg(seg)
+        listas = []
+        for m in RE_STRLIST.finditer(seg):
+            L = struct.unpack('<I', m.group(1))[0]
+            o = m.end()
+            if 1 <= L <= 300 and o+2*L <= len(seg):
+                try:
+                    t = seg[o:o+2*L].decode('utf-16-le')
+                except Exception:
+                    continue
+                if t and all(9 <= ord(c) < 0x300 for c in t):
+                    listas.append(t)
+        els.append({
+            'id': eid,
+            'grupo': tbl.get(eid),
+            'nome': strs[0] if strs else None,
+            'strings': strs[:10],
+            'lista_strings': listas[:20],
+            'bytes': len(seg),
+        })
+    doc = {
+        'arquivo': rvt,
+        'aviso': 'extracao best-effort da fase 2 — formato em docs/ESTRUTURA.md',
+        'total_registros': len(els),
+        'com_nome': sum(1 for e in els if e['nome']),
+        'elementos': els,
+    }
+    with open(saida, 'w') as f:
+        json.dump(doc, f, ensure_ascii=False)
+    print(f'{len(els)} registros -> {saida} ({sum(1 for e in els if e["nome"])} com nome)')
 
 
 if __name__ == '__main__':

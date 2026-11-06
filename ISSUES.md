@@ -18,3 +18,11 @@ estrutura) entre o fim "oficial" e o trailer. Quem decifrar isso fecha o gap.
 ## 2. 28 registros com erro duro
 
 Cascata provável do problema 1 (navegação cai em posição errada).
+
+## 3. Seção principal do ElemTable é delta/bit-packed
+
+O ElemTable tem header `a7 04 [count u16]...` onde count = nº de elementos
+(7.945 no basic, 17.132 no advanced). A seção inicial é alinhada
+(`[id][id][0][parent][Q][0][-1]`), mas ~95% da tabela usa codificação
+própria ainda não decodificada (padrões de delta + bit-packing observados).
+Enquanto isso, a lista completa de elementos vem dos registros `5d 02`.

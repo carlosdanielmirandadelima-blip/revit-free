@@ -74,8 +74,16 @@ python3 src/rvttool.py strings arquivo.rvt Global/Latest
 - [x] Estrutura OLE mapeada
 - [x] Compressão das partições decifrada (gzip em registros + janela compartilhada)
 - [x] Extração do banco de dados em texto puro
-- [ ] Estrutura interna do banco (tabelas de elementos, geometria)
-- [ ] Leitor completo .rvt → dados
+- [x] **ElemTable parcialmente decodificado** — árvore de elementos
+      (gramática `[id][id][0][parent]` + bloco; contagem no header)
+- [x] **Registros de elemento localizados** — marcador `5d 02 01 00 00 00 [id]`,
+      nome UTF-16 inline, listas de strings `[-1][02 08][len][str]`
+- [x] **Extrator de elementos** (`rvttool exporta`): 28.494 registros no
+      projeto de teste, 6.494 com nome (níveis, vistas, famílias, pranchas,
+      tipos de parede), validado em 2 arquivos Revit 2017 diferentes
+- [ ] Seção principal do ElemTable (delta/bit-packed)
+- [ ] Parâmetros completos por elemento
+- [ ] Geometria (B-rep) — meta final: importador FreeCAD
 
 ## Aviso legal
 
