@@ -1,0 +1,143 @@
+Strings extraídas de rac_basic_sample_project.rvt (amostra oficial Autodesk, Revit 2019)
+com rvttool.py — SEM o Revit instalado. Amostra do banco de 77 MB descomprimido.
+
+=== NÍVEIS ===
+Level 1
+Level 2
+Level 3
+
+=== FAMÍLIAS (prefixo M_) ===
+M_1000
+M_Baluster - Square
+M_Break Line
+M_Break LineQ
+M_Callout Head
+M_Circular Handrail
+M_Conical Blend Capital
+M_Conical Blend Capital'
+M_Door Tag
+M_Door TagO
+M_Double-Flush
+M_Double-Flush;
+M_Elevation Mark Body_Circle-12mm
+M_Elevation Mark Pointer_Circle
+M_Elevation Mark Pointer_Circle-12mm
+M_Fascia-Flat
+M_Flat Drop Cap
+M_Flat Drop CapP
+M_Grid Head - Circle
+M_L-Anglel-ColumnN
+M_Level Head - Circle
+M_Pi3e-Steel Pipe
+M_Pile Cap-600 PileL
+M_Pile-Steel Pipe
+M_RPC Beetle
+M_Rectangular Handrail
+M_Room Tag
+M_Room TagA
+M_Section Head - Filled
+M_Section Head - No Arrow
+M_Section Tail - Filled
+M_Section Tail - Filled Horizontal
+M_Shower Stall-2D
+M_Shower Stall-2D]
+M_Slab Edge-Thickened
+M_Spot Elevation - Target Filled
+M_Support - Metal - Circular
+M_Support - Metal - Circularc
+M_TV - Flat Screen
+M_TV - Flat Screen0
+
+=== NÚMEROS DE PRANCHAS ===
+01530.A1
+01530.A2
+01530.A3
+01530.A4
+01530.A5
+01530.A6
+02070.A1
+02070.A2
+02110.A1
+02110.A2
+02110.A3
+02110.B1
+02110.B2
+02110.B3
+02110.B4
+02110.B5
+02220.A1
+02220.A2
+02220.A3
+02220.A4
+02220.A5
+02220.A6
+02220.A7
+02220.B1
+02220.B2
+02220.C1
+02220.C10
+02220.C11
+02220.C12
+02220.C13
+02220.C14
+02220.C15
+02220.C16
+02220.C17
+02220.C18
+02220.C19
+02220.C2
+02220.C20
+02220.C21
+02220.C22
+02220.C23
+02220.C24
+02220.C25
+02220.C26
+02220.C27
+02220.C28
+02220.C29
+02220.C3
+02220.C30
+02220.C31
+02220.C32
+02220.C33
+02220.C34
+02220.C35
+02220.C36
+02220.C37
+02220.C38
+02220.C39
+02220.C4
+02220.C40
+
+=== TEXTOS/ANOTAÇÕES (amostra) ===
+C:\ProgramData\Autodesk\RVT 2017\Libraries\US Imperial\RevitKeynotes_Metric.txt
+Relative to Library Locations
+Division 01 - General Requirements
+Price and Payment Procedures
+Administrative Requirements
+Temporary Facilities and Controls
+Temporary Dustproof Partition
+Temporary Protective Floor Cover
+Temporary Protective Passageway
+Temporary Protective Wall Cover
+Temporary Shoring, Bracing And Support
+Temporary Weatherproof Closure
+Basic Site Materials and Methods
+Excavation, Removal, and Handling of Hazardous Materials
+Remove Existing Above Grade Improvement
+Remove Existing Below Grade Improvement
+Remove Existing Below Grade Construction
+Remove Demolition Materials From Site
+Remove Demolition Materials To Owner's
+Remove Existing Construction
+Existing Building To Be Removed
+Salvage Item, Return To Owner
+Salvage Item, Re-Use In New Work
+Disconnect And Seal Existing Utilities
+Maintain Existing Utilities In Service
+Asphalt Paving To Be Removed
+Concrete Walk To Be Removed
+Concrete Porch To Be Removed
+Brick Masonry To Be Removed
+Stone Veneer To Be Removed
