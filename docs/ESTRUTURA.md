@@ -169,7 +169,12 @@ Dentro do array de doubles, a curva de localização aparece como:
 
 com `hypot(x2-x1, y2-y1) == comprimento` — validação matemática própria,
 então o extrator não depende de heurística fraca. No sample avançado:
-455 linhas extraídas (`rvttool paredes` / `rvttool plano`).
+455 linhas na leitura estrita (`rvttool paredes` / `rvttool plano`);
+com janela deslizante larga, ~8 mil 8-tuples passam na validação, mas
+incluem falsos positivos de arrays de vértices — **a gramática exata dos
+campos counts do registro 04 82 (que delimita o array) é o que falta
+para a extração limpa de 100% das paredes**. Exemplo real extraído:
+(54.4941, 57.5620) → (54.4941, 55.5833), comp 1.9787 ✓
 
 ### 5.3 Vértices de sólido (identificado, decodificação pendente)
 
