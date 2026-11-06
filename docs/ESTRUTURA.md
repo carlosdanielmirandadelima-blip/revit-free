@@ -188,3 +188,20 @@ em metros sugere metros, mas Revit interno é pés).
 1. `paredes` + espessura por tipo → pranhas de paredes extrudadas
 2. vértices 5.3 → sólidos completos
 3. níveis (elevação) → andares
+
+
+## 6. Hierarquia dos registros de geometria (descoberta da sessao 3)
+
+- Registros type-1 grandes (ate 149 mil doubles) sao CONTAINERES: dentro deles
+  ha registros 0482 aninhados (os tipos 4, 5, 14, 15... que parseamos no plano).
+- Tipos de registro 0482 (field0 do counts): 1=container de geometria,
+  4=linha de localizacao (109B, 9 doubles), 5/14/15/7/9/28/8/6/25/31=outros
+  (curvas, arcos, vertices — a decodificar).
+- Estrutura do stream de geometria entre registros:
+  `[tipo byte][item_id u32][0 u32][-1][04 82][08 00][7 counts][dados]`
+  com item_id incrementando — os itens de geometria sao enumerados.
+- No registro type 4: counts = [4][a][b][c][d][ref][0]; ref (count[5]) aponta
+  para elementos de id baixo (28-62) ainda sem nome extraido — provaveis
+  estilos de linha; a atribuicao elemento->geometria continua aberta (issue 3).
+- Tripletos (x, CONST, y) com CONST=0.6096 m (= 2 pes exatos) aparecem antes
+  de registros 04 82 — provavel z de fatias de teselacao ou espessura.
