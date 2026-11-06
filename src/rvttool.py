@@ -17,7 +17,8 @@ Uso:
     python3 rvttool.py strings arquivo.rvt STREAM [min]  — strings UTF-16
     python3 rvttool.py verifica arquivo.rvt [STREAM]     — estatísticas de CRC
     python3 rvttool.py elementos arquivo.rvt [STREAM]    — resumo de elementos
-    python3 rvttool.py exporta arquivo.rvo [SAIDA] [STREAM] — JSON completo
+    python3 rvttool.py versao arquivo.rvt                — versão do Revit
+    python3 rvttool.py exporta arquivo.rvt [SAIDA] [STREAM] — JSON completo
 """
 import io
 import olefile
@@ -133,6 +134,8 @@ def main():
         cmd_verifica(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
     elif cmd == 'elementos':
         cmd_elementos(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
+    elif cmd == 'versao':
+        cmd_versao(rvt)
     elif cmd == 'exporta':
         cmd_exporta(rvt,
                     sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',
@@ -279,6 +282,18 @@ def cmd_exporta(rvt, saida='elementos.json', stream='Partitions/3'):
     with open(saida, 'w') as f:
         json.dump(doc, f, ensure_ascii=False)
     print(f'{len(els)} registros -> {saida} ({sum(1 for e in els if e["nome"])} com nome)')
+
+
+def cmd_versao(rvt):
+    """Lê a versão do Revit do BasicFileInfo."""
+    import olefile
+    ole = olefile.OleFileIO(rvt)
+    b = ole.openstream('BasicFileInfo').read()
+    ole.close()
+    txt = b.decode('utf-16-le', errors='ignore')
+    import re as _re
+    m = _re.search(r'Revit \d{4}(?:[^\x00]*?Build: [0-9_()x]+)?', txt)
+    print(m.group(0) if m else txt[:80])
 
 
 if __name__ == '__main__':

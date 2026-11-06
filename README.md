@@ -27,16 +27,27 @@ sequência de registros gzip com **janela deflate compartilhada**:
 ## Uso
 
 ```bash
-# listar streams do arquivo
-python3 src/rvttool.py lista arquivo.rvt
-
-# descomprimir qualquer stream (o banco principal é Partitions/3)
-python3 src/rvttool.py dump arquivo.rvt Partitions/3 banco.bin
-
-# strings legíveis de um stream (UTF-16)
-python3 src/rvttool.py strings arquivo.rvt Global/Latest
+python3 src/rvttool.py versao  arquivo.rvt                  # versão do Revit
+python3 src/rvttool.py lista   arquivo.rvt                  # streams OLE
+python3 src/rvttool.py dump    arquivo.rvt Partitions/3 out.bin
+python3 src/rvttool.py strings arquivo.rvt                  # catálogo de strings
+python3 src/rvttool.py verifica arquivo.rvt                 # estatísticas de CRC
+python3 src/rvttool.py elementos arquivo.rvt                # árvore + resumo
+python3 src/rvttool.py exporta arquivo.rvt elementos.json   # TODOS os elementos
 ```
 
+**`exporta`** gera um JSON com cada registro de elemento: `id`, `grupo`
+(categoria pelo ElemTable), `nome`, `strings` e `lista_strings`. No projeto
+de teste (sample oficial da Autodesk, Revit 2017):
+
+- 28.494 registros de elemento, 6.494 com nome
+- níveis ("Level 1/2/3"), vistas ("North", "Elevation 2", "Site"),
+  famílias ("M_Basic Wall"), tipos de parede ("Generic - 200mm",
+  "Exterior - Brick on Mtl. Stud"), pranchas ("A10", "01530.A2"),
+  famílias de anotação, materiais e textos de ferramenta
+- validado em 2 arquivos Revit 2017 distintos
+
+Veja `exemplos/elementos_amostra.json` e `docs/ESTRUTURA.md`.
 ## Formato decifrado (detalhes)
 
 **Container**: OLE Compound File (`D0 CF 11 E0`). Streams relevantes:
