@@ -210,3 +210,14 @@ em metros sugere metros, mas Revit interno é pés).
   ser o total de doubles incluindo os aninhados).
 - Tripletos (x, CONST, y) com CONST=0.6096 m (= 2 pes exatos) aparecem antes
   de registros 04 82 — provavel z de fatias de teselacao ou espessura.
+
+## 7. Contêineres type-1 — modelo de extensão (confirmado para pequenos)
+
+- Contêiner pequeno: fim real = inicio + 36 + count6*8. Os registros 0482
+  aninhados ficam DENTRO dessa area (o gap entre o fim previsto e o proximo
+  marcador flat = exatamente o tamanho dos aninhados: count6=74 -> gap=592=74*8).
+- Contêineres gigantes (count6=0, ate 1,2 MB): extensao por outra via — a
+  resolver. Prefixo antes do marker: `[01 07][ff ff ff ff][X u32]` onde X =
+  count6 do proprio contêiner.
+- Proximo passo: parser recursivo (contêiner -> aninhados -> ...) e teste de
+  atribuicao elemento->contêiner via item_id do stream de geometria.
