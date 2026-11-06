@@ -23,8 +23,47 @@ sequência de registros gzip com **janela deflate compartilhada**:
 ## Uso
 
 ```bash
-python3 src/extract_partition.py arquivo.rvt Partitions/3 saida.bin
+# listar streams do arquivo
+python3 src/rvttool.py lista arquivo.rvt
+
+# descomprimir qualquer stream (o banco principal é Partitions/3)
+python3 src/rvttool.py dump arquivo.rvt Partitions/3 banco.bin
+
+# strings legíveis de um stream (UTF-16)
+python3 src/rvttool.py strings arquivo.rvt Global/Latest
 ```
+
+## Formato decifrado (detalhes)
+
+**Container**: OLE Compound File (`D0 CF 11 E0`). Streams relevantes:
+
+| Stream | Conteúdo |
+|---|---|
+| `Partitions/3` | banco de dados principal do projeto (elementos, geometria) |
+| `Partitions/4`, `/5` | metadados de views/render, config |
+| `Global/ElemTable` | índice de elementos (assinatura interna `0x1f09`) |
+| `Global/Latest`, `Formats/Latest` | estado/formato do documento |
+| `ProjectInformation` | ZIP com XML de metadados (versão, template) |
+| `RevitPreview4.0` | PNG de preview |
+| `BasicFileInfo` | versão do Revit que gravou |
+
+**Compressão**: cada stream comprimido é uma cadeia de registros
+
+```
+[10B header gzip: 1f 8b 08 00 + mtime 0][deflate raw][CRC32 4B][ISIZE 4B][32B rodapé]
+```
+
+- rodapé (32B) contém: magic `0cab`, tamanho comprimido do registro, magic `0cb0`,
+  contador sequencial (+4 por registro), tamanho descomprimido, tamanho do próximo
+- **o deflate NÃO reinicia a janela entre registros**: descomprimir isolado dá
+  `invalid distance too far back`
+- **solução**: `zlib.decompressobj(-15, zdict=últimos_32KB_do_output_anterior)`
+- `ISIZE` de cada registro valida o tamanho descomprimido
+- no arquivo de teste (Revit 2019, 31 MB): 978 registros, 950 OK, 28 falhas,
+  16 MB → 77 MB de banco de dados com strings UTF-16 legíveis
+  (famílias, níveis, pranchas, parâmetros, textos de anotação)
+
+**Strings dentro do banco**: `[u32 nchars][UTF-16LE]`.
 
 ## Estado
 
