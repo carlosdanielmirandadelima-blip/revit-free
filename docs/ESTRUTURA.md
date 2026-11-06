@@ -200,8 +200,13 @@ em metros sugere metros, mas Revit interno é pés).
 - Estrutura do stream de geometria entre registros:
   `[tipo byte][item_id u32][0 u32][-1][04 82][08 00][7 counts][dados]`
   com item_id incrementando — os itens de geometria sao enumerados.
-- No registro type 4: counts = [4][a][b][c][d][ref][0]; ref (count[5]) aponta
-  para elementos de id baixo (28-62) ainda sem nome extraido — provaveis
-  estilos de linha; a atribuicao elemento->geometria continua aberta (issue 3).
+- No registro type 4: counts = [4][a][b][c][d][ref][0]; **ref (count[5]) = ESTILO
+  DE LINHA global** — ids 20-70 sao os estilos built-in (20='Hidden',
+  21='Demolished', 22='Grid Line'; verificados IGUAIS em dois projetos
+  diferentes). Nao e o elemento dono.
+- A atribuicao elemento->geometria exige parser RECURSIVO: os contêineres
+  type-1 tem registros 0482 aninhados e o span "ate o proximo marcador" nao
+  mede o fim real do contêiner (o count[6] do container, ex. 39.863, parece
+  ser o total de doubles incluindo os aninhados).
 - Tripletos (x, CONST, y) com CONST=0.6096 m (= 2 pes exatos) aparecem antes
   de registros 04 82 — provavel z de fatias de teselacao ou espessura.
