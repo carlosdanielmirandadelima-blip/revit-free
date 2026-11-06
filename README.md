@@ -24,6 +24,18 @@ sequência de registros gzip com **janela deflate compartilhada**:
 - Resultado: 16 MB de partição → 77 MB de banco de dados estruturado, com strings
   UTF-16 legíveis (nomes de famílias, níveis, pranchas, parâmetros)
 
+## PIPELINE FREECAD FUNCIONANDO
+
+`rvttool macro samples/rac_advanced_sample_project.rvt import.FCMacro` gera uma
+macro autocontida que, executada no FreeCAD (Macro > Macros...), cria um
+documento com as linhas de localizacao de cada nivel (Part::Feature, metros) e
+uma planilha com o inventario de elementos nomeados. Testado no FreeCAD 1.1.4:
+documento com 13 objetos, 9.741 arestas no nivel 0, planilha populada.
+Exemplos prontos em `exemplos/` (`.FCMacro`, `.dxf`, `.FCStd`).
+
+Alternativa leve: `rvttool dxf` gera DXF R2010 com uma camada por nivel
+(`NIVEL_+0.000`, `NIVEL_+4.370`, ...) — abre nativamente no FreeCAD.
+
 ## Uso
 
 ```bash

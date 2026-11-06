@@ -160,6 +160,96 @@ def cmd_curvas(rvt, saida='curvas.json'):
     print('niveis (z -> n):', dict(sorted(zs.items(), key=lambda kv: -kv[1])[:8]))
     print(f'salvo em {saida}')
 
+# ---------------------------------------------------------------- dxf (MVP importador)
+# Exporta as linhas de localizacao como DXF com uma camada por nivel.
+# Unidades: converte pes -> metros (x0.3048). Abre no FreeCAD (Arquivo > Importar),
+# AutoCAD, BricsCAD, QCAD, Inkscape etc.
+
+def cmd_dxf(rvt, saida='planta.dxf'):
+    import ezdxf
+    st = read_stream(rvt, 'Partitions/3')
+    linhas = extrai_curvas_t4(st['data'])
+    PE = 0.3048
+    vistos = set()
+    por_nivel = collections.defaultdict(list)
+    for l in linhas:
+        key = (round(l['x1'], 3), round(l['y1'], 3), round(l['x2'], 3),
+               round(l['y2'], 3), round(l['z'], 2))
+        if key in vistos:
+            continue
+        vistos.add(key)
+        por_nivel[round(l['z'] * PE, 3)].append(l)
+    doc = ezdxf.new('R2010', setup=True)
+    msp = doc.modelspace()
+    for z in sorted(por_nivel):
+        camada = f'NIVEL_{z:+.3f}'.replace('.', ',').replace('+', 'P').replace('-', 'M')
+        # nome de camada DXF nao aceita virgula; usar ponto
+        camada = f'NIVEL_{z:+.3f}'
+        if camada not in doc.layers:
+            doc.layers.add(camada)
+        n = 0
+        for l in por_nivel[z]:
+            msp.add_line((l['x1']*PE, l['y1']*PE), (l['x2']*PE, l['y2']*PE),
+                         dxfattribs={'layer': camada})
+            n += 1
+        print(f'  camada {camada}: {n} linhas')
+    doc.saveas(saida)
+    print(f'DXF salvo em {saida} ({sum(len(v) for v in por_nivel.values())} linhas, {len(por_nivel)} niveis)')
+
+# ---------------------------------------------------------------- macro FreeCAD
+# Gera um .FCMacro autocontido: ao executa-lo no FreeCAD (Macro > Macros...),
+# cria um documento com as linhas de localizacao por nivel (Part::Feature)
+# e uma planilha com o inventario de elementos nomeados.
+
+def cmd_macro(rvt, saida='revit_import.FCMacro'):
+    st = read_stream(rvt, 'Partitions/3')
+    linhas = extrai_curvas_t4(st['data'])
+    PE = 0.3048
+    vistos = set()
+    por_nivel = collections.defaultdict(list)
+    for l in linhas:
+        key = (round(l['x1'], 3), round(l['y1'], 3), round(l['x2'], 3),
+               round(l['y2'], 3), round(l['z'], 2))
+        if key in vistos:
+            continue
+        vistos.add(key)
+        por_nivel[round(l['z'] * PE, 3)].append(l)
+    # elementos nomeados
+    tbl = dict(parse_elemtable(read_stream(rvt, 'Global/ElemTable')['data'])[0])
+    els = extrai_elementos(st['data'], tbl)
+    nomeados = [(e['id'], e['nome']) for e in els if e['nome']]
+    nomeados = nomeados[:4000]
+    L = []
+    a = L.append
+    a('# Gerado por revit-free (rvttool macro) — importador .rvt -> FreeCAD')
+    a('# Executar dentro do FreeCAD: Macro > Macros... > selecionar este arquivo > Executar')
+    a('import FreeCAD as App')
+    a('import Part')
+    a('doc = App.newDocument("RevitImport")')
+    a('')
+    for z in sorted(por_nivel):
+        nome = f'NIVEL_{z:+.3f}'
+        a(f'grp = doc.addObject("App::DocumentObjectGroup", "{nome}")')
+        a(f'grp.Label = "{nome} (linhas de localizacao)"')
+        a('comp = []')
+        for l in por_nivel[z]:
+            a(f'comp.append(Part.LineSegment(App.Vector({l["x1"]*PE:.6f}, {l["y1"]*PE:.6f}, {z:.6f}), '
+              f'App.Vector({l["x2"]*PE:.6f}, {l["y2"]*PE:.6f}, {z:.6f})))')
+        a('obj = doc.addObject("Part::Feature", "%s")' % nome)
+        a(f'obj.Label = "{nome}"')
+        a('obj.Shape = Part.Shape(comp)')
+        a('grp.addObject(obj)')
+        a('')
+    a('sheet = doc.addObject("Spreadsheet::Sheet", "Elementos")')
+    a('sheet.set("A1", "id"); sheet.set("B1", "nome")')
+    for i, (eid, nome) in enumerate(nomeados, start=2):
+        nm = nome.replace('\\', '\\\\').replace('"', '\\"')
+        a(f'sheet.set("A{i}", "{eid}"); sheet.set("B{i}", "{nm}")')
+    a('doc.recompute()')
+    a('print("revit-free: documento criado —", len(doc.Objects), "objetos")')
+    open(saida, 'w').write('\n'.join(L))
+    print(f'macro salva em {saida}: {len(por_nivel)} niveis, {len(nomeados)} elementos nomeados')
+
 def main():
     if len(sys.argv) < 3:
         print(__doc__)
@@ -183,6 +273,10 @@ def main():
         cmd_versao(rvt)
     elif cmd == 'curvas':
         cmd_curvas(rvt, sys.argv[3] if len(sys.argv) > 3 else 'curvas.json')
+    elif cmd == 'dxf':
+        cmd_dxf(rvt, sys.argv[3] if len(sys.argv) > 3 else 'planta.dxf')
+    elif cmd == 'macro':
+        cmd_macro(rvt, sys.argv[3] if len(sys.argv) > 3 else 'revit_import.FCMacro')
     elif cmd == 'exporta':
         cmd_exporta(rvt,
                     sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',
@@ -287,12 +381,8 @@ def _strings_seg(seg, limite=1200, minimo=2):
     return out
 
 
-def cmd_exporta(rvt, saida='elementos.json', stream='Partitions/3'):
-    """Extrai todos os elementos do banco: id, grupo, nome, strings, listas."""
-    import json
-    data = read_stream(rvt, stream)['data']
-    et = read_stream(rvt, 'Global/ElemTable')['data']
-    tbl = dict(parse_elemtable(et)[0])
+def extrai_elementos(data, tbl):
+    """Extrai elementos do banco: lista de dicts id/grupo/nome/strings/listas."""
     pos = [m.start() for m in re.finditer(re.escape(MK_ELEM), data)]
     els = []
     for k, s in enumerate(pos):
@@ -319,6 +409,15 @@ def cmd_exporta(rvt, saida='elementos.json', stream='Partitions/3'):
             'lista_strings': listas[:20],
             'bytes': len(seg),
         })
+    return els
+
+def cmd_exporta(rvt, saida='elementos.json', stream='Partitions/3'):
+    """Extrai todos os elementos do banco: id, grupo, nome, strings, listas."""
+    import json
+    data = read_stream(rvt, stream)['data']
+    et = read_stream(rvt, 'Global/ElemTable')['data']
+    tbl = dict(parse_elemtable(et)[0])
+    els = extrai_elementos(data, tbl)
     doc = {
         'arquivo': rvt,
         'aviso': 'extracao best-effort da fase 2 — formato em docs/ESTRUTURA.md',
