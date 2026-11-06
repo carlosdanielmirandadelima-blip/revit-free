@@ -16,10 +16,12 @@ Uso:
     python3 rvttool.py dump    arquivo.rvt STREAM [out] — descomprime stream
     python3 rvttool.py strings arquivo.rvt STREAM [min]  — strings UTF-16
     python3 rvttool.py verifica arquivo.rvt [STREAM]     — estatísticas de CRC
+    python3 rvttool.py elementos arquivo.rvt [STREAM]    — resumo de elementos
 """
 import io
 import olefile
 import re
+import struct
 import sys
 import zlib
 
@@ -128,10 +130,83 @@ def main():
         cmd_strings(rvt, sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 6)
     elif cmd == 'verifica':
         cmd_verifica(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
+    elif cmd == 'elementos':
+        cmd_elementos(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
     else:
         print(__doc__)
         return 1
     return 0
+
+
+
+
+# ---------------------------------------------------------------- elementos
+
+def parse_elemtable(data):
+    """Parser EXPERIMENTAL do Global/ElemTable (parcial — ver ISSUES.md).
+
+    Gramática descoberta: header 18B (a7 04 09 1f); registros
+      [id][dup][flags][parent]  — parent == -1 encerra
+      + bloco [X][Y][T] (3 valores) quando parent != -1
+    O restante da tabela usa codificação própria ainda não decodificada.
+    """
+    if len(data) < 18 or data[0:4] != b'\xa7\x04\x09\x1f':
+        return []
+    vals = struct.unpack_from(f'<{(len(data)-18)//4}I', data, 18)
+    n = len(vals)
+    out = []
+    i = 0
+    while i + 3 < n:
+        a, b, f3, f4 = vals[i:i+4]
+        if a != b or a == 0 or a >= 2_000_000 or f3 >= 2_000_000:
+            i += 1
+            continue
+        parent = -1 if f4 == 0xFFFFFFFF else f4
+        if parent >= 2_000_000:
+            i += 1
+            continue
+        out.append((a, parent))
+        i += 4
+        if parent != -1 and i + 2 < n:
+            i += 3  # bloco [X][Y][T]
+    return out
+
+
+def cmd_elementos(rvt, stream='Partitions/3'):
+    """Best-effort: árvore de elementos (ElemTable) + catálogo de strings."""
+    import json
+    et = read_stream(rvt, 'Global/ElemTable')['data']
+    entradas = parse_elemtable(et)
+    ids = sorted(set(a for a, _ in entradas))
+    filhos = {}
+    vistos = set()
+    for a, p in entradas:
+        if a in vistos:
+            continue
+        vistos.add(a)
+        filhos.setdefault(p, []).append(a)
+    data = read_stream(rvt, stream)['data']
+    pat = ('(?:[ -~\\xc0-\\xff]\\x00){3,}').encode()
+    strs = []
+    for m in re.finditer(pat, data):
+        try:
+            t = m.group().decode('utf-16-le')
+        except Exception:
+            continue
+        strs.append(t)
+    resumo = {
+        'AVISO': 'árvore de elementos extraída do ElemTable (gramática parcial, ver docs)'
+        'elementos_na_arvore': len(ids),
+        'raizes': [a for a, p in entradas if p == -1][:20],
+        'grupos_maiores': [(p, len(f)) for p, f in
+                           sorted(filhos.items(), key=lambda kv: -len(kv[1]))[:10]],
+        'total_strings': len(strs),
+        'strings_unicas': len(set(strs)),
+        'amostra_familias': sorted(set(s for s in strs if s.startswith('M_')))[:30],
+        'amostra_niveis': sorted(set(s for s in strs if 'Level' in s or 'Nível' in s))[:15],
+        'amostra_pranchas': sorted(set(s for s in strs if re.match(r'^\\d{4,5}\\.\\w', s)))[:20],
+    }
+    print(json.dumps(resumo, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

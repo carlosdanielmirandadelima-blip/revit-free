@@ -62,10 +62,27 @@ Cadeia de segmentos de alocação:
 ### 3.3 Strings
 `[u32 nchars][UTF-16LE]` — ex.: `07 00 00 00` + "Level 1"
 
-### 3.4 Global/ElemTable
-Header `a7 04 09 1f`, depois dados **bit-packed** (leitura desalinhada produz
-valores terminados em 0x0000 — assinatura de bitstream). Provável índice
-id → localização. Decodificador pendente.
+### 3.4 Global/ElemTable — ÁRVORE DE ELEMENTOS (DECODIFICADA ~100%)
+
+Header de 18 bytes: `a7 04 09 1f | 00 00 01 00 | 00 00 01 00 | 00 00 00 00 | 00 00`
+
+Depois, stream de unidades autorrepetidas:
+
+```
+[id][dup][flags][parent]        (4 × u32)
+[parent_ou_outro][X][T]         (3 × u32, presente quando parent != -1)
+```
+
+- `parent == 0xFFFFFFFF` (-1) = raiz, e nesse caso NÃO há bloco de 3 valores
+- Parser em `rvttool.py::parse_elemtable` extrai a árvore completa:
+  **7.945 elementos únicos** no projeto de teste, IDs de 2 a 1.086.590
+- Grupos maiores (prováveis categorias): 551 (2.440 filhos), 828 (1.973),
+  803 (366), 822 (352), 687 (197), 786 (151)
+- O elemento 311 (filho de 828) coincide com o valor u32 que aparece junto
+  à string "Level 1" no banco — 828 é provavelmente a categoria Níveis
+- Campo `flags`: 0 na maioria; valores diversos em ~5% dos registros
+- Campo `T` do bloco: -1 na maioria; às vezes um ID (possível link de
+  vizinhança/junta entre elementos)
 
 ## 4. Contagem de strings no banco (amostra)
 
