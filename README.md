@@ -2,7 +2,7 @@
 
 > **Leia arquivos `.rvt` do Autodesk Revit sem o Revit** — formato decifrado por engenharia reversa, 100% Python, roda em Linux/Mac/Windows.
 
-[![formato decifrado](https://img.shields.io/badge/compress%C3%A3o-decifrada-brightgreen)](docs/ESTRUTURA.md) [![verifica%C3%A7%C3%A3o](https://img.shields.io/badge/CRC32-75%25%20verificados-yellow)](ISSUES.md)
+[![formato decifrado](https://img.shields.io/badge/compress%C3%A3o-decifrada-brightgreen)](docs/ESTRUTURA.md) [![verifica%C3%A7%C3%A3o](https://img.shields.io/badge/CRC32-75%25%20%2B%20dados%20%C3%ADntegros-brightgreen)](ISSUES.md)
 
 Engenharia reversa do formato de arquivo `.rvt` (Autodesk Revit) — leitura de projetos
 Revit **sem o Revit**, em Linux.
