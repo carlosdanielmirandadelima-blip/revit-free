@@ -150,3 +150,36 @@ aparece 2×).
 - O header do ElemTable muda só no count (`a7 04 09 1f` = 7.945 vs
   `a7 04 ec 42` = 17.132) — a gramática é a mesma
 - Próximo passo: validar em .rvt de versões mais novas (2019-2025)
+
+
+## 5. Geometria (fase 3 — localizada e parcialmente decodificada)
+
+### 5.1 Registros de geometria
+
+Marcador: `ff ff ff ff 04 82 08 00` seguido de 6 u32 (contagens) e arrays
+de doubles. Dezenas de milhares por arquivo (cada elemento pode ter vários).
+
+### 5.2 Location lines (DECODIFICADO, auto-validado)
+
+Dentro do array de doubles, a curva de localização aparece como:
+
+```
+[x1][y1][z][0][x2][y2][z][comprimento]   (8 × f64)
+```
+
+com `hypot(x2-x1, y2-y1) == comprimento` — validação matemática própria,
+então o extrator não depende de heurística fraca. No sample avançado:
+455 linhas extraídas (`rvttool paredes` / `rvttool plano`).
+
+### 5.3 Vértices de sólido (identificado, decodificação pendente)
+
+Antes dos registros 04 82 há arrays de tripletos `(x, CONST, y)` onde a
+constante repetida (ex.: 0.6096) parece ser espessura/offset — provável
+teselação dos sólidos. Unidades ainda a confirmar (0.6096 = 2 ft exatos
+em metros sugere metros, mas Revit interno é pés).
+
+### 5.4 Caminho até o importador FreeCAD
+
+1. `paredes` + espessura por tipo → pranhas de paredes extrudadas
+2. vértices 5.3 → sólidos completos
+3. níveis (elevação) → andares

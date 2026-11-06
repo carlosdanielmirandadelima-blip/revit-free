@@ -34,6 +34,8 @@ python3 src/rvttool.py strings arquivo.rvt                  # catálogo de strin
 python3 src/rvttool.py verifica arquivo.rvt                 # estatísticas de CRC
 python3 src/rvttool.py elementos arquivo.rvt                # árvore + resumo
 python3 src/rvttool.py exporta arquivo.rvt elementos.json   # TODOS os elementos
+python3 src/rvttool.py paredes arquivo.rvt paredes.json     # location lines
+python3 src/rvttool.py plano  arquivo.rvt plano.svg         # planta 2D (SVG)
 ```
 
 **`exporta`** gera um JSON com cada registro de elemento: `id`, `grupo`
@@ -93,8 +95,10 @@ Veja `exemplos/elementos_amostra.json` e `docs/ESTRUTURA.md`.
       projeto de teste, 6.494 com nome (níveis, vistas, famílias, pranchas,
       tipos de parede), validado em 2 arquivos Revit 2017 diferentes
 - [ ] Seção principal do ElemTable (delta/bit-packed)
+- [x] **Location lines de paredes decodificadas** (auto-validadas:
+      `hypot(dx,dy) == comprimento`) — `rvttool plano` gera a planta em SVG
+- [ ] Vértices de sólido (teselação identificada)
 - [ ] Parâmetros completos por elemento
-- [ ] Geometria (B-rep) — meta final: importador FreeCAD
 
 ## Aviso legal
 

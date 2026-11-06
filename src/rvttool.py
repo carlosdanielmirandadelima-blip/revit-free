@@ -17,6 +17,8 @@ Uso:
     python3 rvttool.py strings arquivo.rvt STREAM [min]  — strings UTF-16
     python3 rvttool.py verifica arquivo.rvt [STREAM]     — estatísticas de CRC
     python3 rvttool.py elementos arquivo.rvt [STREAM]    — resumo de elementos
+    python3 rvttool.py paredes arquivo.rvt [SAIDA]       — location lines
+    python3 rvttool.py plano arquivo.rvt [SAIDA.svg]     — planta 2D em SVG
     python3 rvttool.py versao arquivo.rvt                — versão do Revit
     python3 rvttool.py exporta arquivo.rvt [SAIDA] [STREAM] — JSON completo
 """
@@ -134,6 +136,10 @@ def main():
         cmd_verifica(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
     elif cmd == 'elementos':
         cmd_elementos(rvt, sys.argv[3] if len(sys.argv) > 3 else 'Partitions/3')
+    elif cmd == 'paredes':
+        cmd_paredes(rvt, sys.argv[3] if len(sys.argv) > 3 else 'paredes.json')
+    elif cmd == 'plano':
+        cmd_plano(rvt, sys.argv[3] if len(sys.argv) > 3 else 'plano.svg')
     elif cmd == 'versao':
         cmd_versao(rvt)
     elif cmd == 'exporta':
@@ -294,6 +300,95 @@ def cmd_versao(rvt):
     import re as _re
     m = _re.search(r'Revit \d{4}(?:[^\x00]*?Build: [0-9_()x]+)?', txt)
     print(m.group(0) if m else txt[:80])
+
+
+# ---------------------------------------------------------------- paredes
+
+RE_GEO = re.compile(rb'\xff\xff\xff\xff\x04\x82\x08\x00')
+
+
+def cmd_paredes(rvt, saida='paredes.json', stream='Partitions/3'):
+    """Extrai location lines (paredes/linhas) dos registros de geometria.
+
+    Cada registro de geometria [-1][04 82][08 00][counts...] contém arrays
+    de doubles; quando o 8-tuple [x1,y1,z1,0,x2,y2,z2,L] satisfaz
+    dist((x1,y1),(x2,y2)) == L, é uma location line auto-validada.
+    """
+    import json, math
+    d = read_stream(rvt, stream)['data']
+    out = []
+    for m in RE_GEO.finditer(d):
+        o = m.end()
+        start = o + 24 + ((8 - (o + 24) % 8) % 8)
+        if start + 64 > len(d):
+            continue
+        dbls = [struct.unpack_from('<d', d, start + k)[0] for k in range(0, 96, 8)]
+        for f in range(0, 5):
+            w = dbls[f:f+8]
+            if len(w) < 8:
+                break
+            x1, y1, z1, p1, x2, y2, z2, L = w
+            if not all(abs(v) < 1e4 for v in (x1, y1, x2, y2, L)):
+                continue
+            if abs(z1 - z2) > 1e-9:
+                continue
+            dist = math.hypot(x2 - x1, y2 - y1)
+            if dist < 0.5 or abs(dist - L) > 0.02 * L:
+                continue
+            out.append({'x1': round(x1, 4), 'y1': round(y1, 4), 'z': round(z1, 4),
+                        'x2': round(x2, 4), 'y2': round(y2, 4), 'comp': round(L, 4)})
+            break
+    doc = {'arquivo': rvt, 'location_lines': len(out), 'linhas': out}
+    with open(saida, 'w') as f:
+        json.dump(doc, f)
+    print(f'{len(out)} location lines -> {saida}')
+
+
+def cmd_plano(rvt, saida='plano.svg', stream='Partitions/3'):
+    """Renderiza as location lines em SVG (planta 2D)."""
+    import json, math
+    d = read_stream(rvt, stream)['data']
+    lines = []
+    for m in RE_GEO.finditer(d):
+        o = m.end()
+        start = o + 24 + ((8 - (o + 24) % 8) % 8)
+        if start + 64 > len(d):
+            continue
+        dbls = [struct.unpack_from('<d', d, start + k)[0] for k in range(0, 96, 8)]
+        for f in range(0, 5):
+            w = dbls[f:f+8]
+            if len(w) < 8:
+                break
+            x1, y1, z1, p1, x2, y2, z2, L = w
+            if not all(abs(v) < 1e4 for v in (x1, y1, x2, y2, L)):
+                continue
+            if abs(z1 - z2) > 1e-9:
+                continue
+            dist = math.hypot(x2 - x1, y2 - y1)
+            if dist < 0.5 or abs(dist - L) > 0.02 * L:
+                continue
+            lines.append((x1, y1, x2, y2))
+            break
+    if not lines:
+        print('nenhuma linha encontrada')
+        return
+    xs = [v for l in lines for v in (l[0], l[2])]
+    ys = [v for l in lines for v in (l[1], l[3])]
+    W = H = 1500
+    pad = 40
+    x0, xa, y0, ya = min(xs), max(xs), min(ys), max(ys)
+    sc = min((W - 2 * pad) / max(1e-9, xa - x0), (H - 2 * pad) / max(1e-9, ya - y0))
+    px = lambda x: pad + (x - x0) * sc
+    py = lambda y: H - pad - (y - y0) * sc
+    svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}">',
+           '<rect width="100%" height="100%" fill="white"/>']
+    for x1, y1, x2, y2 in lines:
+        svg.append(f'<line x1="{px(x1):.1f}" y1="{py(y1):.1f}" x2="{px(x2):.1f}" '
+                   f'y2="{py(y2):.1f}" stroke="black" stroke-width="1.2"/>')
+    svg.append('</svg>')
+    with open(saida, 'w') as f:
+        f.write('\n'.join(svg))
+    print(f'{len(lines)} linhas -> {saida}')
 
 
 if __name__ == '__main__':
