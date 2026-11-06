@@ -43,6 +43,15 @@ estrutura) entre o fim "oficial" e o trailer. Quem decifrar isso fecha o gap.
 Com as fronteiras corretas (scan `1f 8b 08 00`) restam 27 spans sem decode —
 cascata provável de headers não detectados; impacto pequeno.
 
+## 2b. Importador FreeCAD — MVP ENTREGUE, BIM completo pendente
+
+Entregue (testado no FreeCAD 1.1.4): `rvttool macro` (FCMacro autocontida:
+planta por nivel + planilha de elementos) e `rvttool dxf` (DXF por nivel).
+Pendencia para BIM completo: link elemento->geometria. Os contêineres type-1
+tem indice crescente (195, 196, 197...) e extensao conhecida (36 + count6*8),
+mas o elemento dono de cada bloco ainda nao foi localizado — deve passar pelo
+sistema de referencias do DB (issue 3 / tabelas de indice).
+
 ## 3. Seção principal do ElemTable é delta/bit-packed
 
 O ElemTable tem header `a7 04 [count u16]...` onde count = nº de elementos
