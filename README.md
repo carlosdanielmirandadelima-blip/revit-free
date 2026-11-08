@@ -42,8 +42,10 @@ Alternativa leve: `rvttool dxf` gera DXF R2010 com uma camada por nivel
 fechados** das curvas (extremidades agrupadas com tolerancia de 1 cm, tracado
 preferindo o menor angulo de virada) e grava `LWPOLYLINE` fechada por contorno,
 mais um JSON por nivel com `lados`, `perimetro_m`, `area_m2` e o vetor de
-pontos. Amostra avancada: 131 contornos (nivel 0: mediana 62 m2; niveis
-superiores: 4 contornos de 240 m2 = a laje). Contornos maiores que 20x a
+pontos. Segmentos repetidos sao deduplicados (mesma regra do `ifc`).
+Amostra avancada: 76 contornos (nivel 0: 68, mediana 76 m2; niveis superiores:
+4 contornos de 240 m2 = a laje). O `ifc` inclui esses contornos no pavimento
+como representacao `Contorno`. Contornos maiores que 20x a
 mediana ganham `"suspeita": "laco_muito_grande"` — normalmente sao tracejados
 por linhas de grade/site, nao ambientes.
 
@@ -53,8 +55,9 @@ por linhas de grade/site, nao ambientes.
 → `IfcBuilding` → um `IfcBuildingStorey` por nivel, cada pavimento com a
 geometria de referencia (`IfcGeometricCurveSet` de `IfcPolyline`) e um
 `Pset_RevitImport`. Unidades em metros; niveis com menos de 4 curvas sao
-descartados como ruido (niveis espurios de 1-3 linhas). Testado com
-`ifcopenshell 0.9.0` (reabre e itera a geometria).
+descartados como ruido (niveis espurios de 1-3 linhas). Cada pavimento tem duas
+representacoes: `Reference` (segmentos) e `Contorno` (poligonais fechadas, quando
+existem). Testado com `ifcopenshell 0.9.0` (reabre e itera a geometria).
 
 A geometria entra como **referencia** dentro do pavimento, nao como
 `IfcWall`/`IfcSlab`: o vinculo elemento→geometria ainda nao foi decodificado

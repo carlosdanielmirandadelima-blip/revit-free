@@ -108,10 +108,29 @@ Testes feitos e descartados — registrados para poupar retrabalho:
    interna que liga curva → objeto, mas o mapeamento objeto → elemento
    continua desconhecido.
 
+8. **Layout do registro de 109 bytes revisado**: `8 (assinatura) + 28 (7 u32)
+   + 72 (9 doubles) + 1 byte`. Os sete u32 não são `[tipo][a][b][c][d][ref][0]`
+   como documentado para o projeto básico — no avançado aparecem valores como
+   `(4, 6, 20, 53, 54, 58, 0)` e `(5, 6, 56, 22, 21, 53, 0)`, com números na
+   faixa 0–800 que variam por objeto. Ou seja: são **índices de vértice/nó**
+   numa tabela do chunk, não estilo de linha. A leitura anterior (ref = estilo)
+   vale para o subconjunto do projeto básico, não como regra geral.
+9. **Família de 48 bytes é adjacência, não atribuição**: `A` reinicia por chunk
+   (ex.: chunk #214: 49–64; #222: 341–483), `B = A+1` e `C` sobe de 4 em 4 —
+   assinatura típica de índice vértice→segmento sobre um array de u32. Não há
+   nenhuma correspondência entre `A` e os índices locais de elemento (em
+   #213 os elementos têm índice ~251 e os `A` do chunk são 49–64).
+10. **Registro de elemento**: `[tipo_idx u32][idx_local u32] … [01 00 00 00]
+   [ptr u32][len u32][nome UTF-16]`. Exemplo real no chunk #213: tipo 180,
+   índice 250, `len` 16, nome `Filled Box 2.5mm`. O nome é recuperável (já é,
+   via marcadores `5d 02`), mas o campo `tipo_idx` é a primeira pista de
+   categoria numérica que não depende do ElemTable.
+
 **Entregue no lugar disso** (não depende do link): `rvttool poligonos`
 reconstroi contornos fechados das curvas e exporta DXF `LWPOLYLINE` + JSON com
-perímetro e área por nível. No projeto avançado: 131 contornos (nível 0:
-mediana 62 m²; níveis 4,37 e 8,17 m: 4 contornos de 240 m² cada).
+perímetro e área por nível, e o `ifc` inclui esses contornos no pavimento como
+representação `Contorno`. No projeto avançado: 76 contornos (nível 0: 68,
+mediana 76 m²; níveis 4,37 e 8,17 m: 4 contornos de 241 m² cada).
 É geometria medida e conferida, mas sem semântica de elemento (não é parede
 com categoria/material).
 

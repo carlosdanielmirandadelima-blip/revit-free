@@ -282,16 +282,36 @@ def cmd_ifc(rvt, saida='modelo.ifc', min_curvas=4):
             continue
         total += len(itens)
         curvas = f.create_entity('IfcGeometricCurveSet', Elements=itens)
-        rep = f.create_entity('IfcShapeRepresentation', ContextOfItems=ctx,
-                              RepresentationIdentifier='Reference',
-                              RepresentationType='GeometricCurveSet',
-                              Items=[curvas])
+        reps = [f.create_entity('IfcShapeRepresentation', ContextOfItems=ctx,
+                                RepresentationIdentifier='Reference',
+                                RepresentationType='GeometricCurveSet',
+                                Items=[curvas])]
+        # contornos fechados (mesma reconstrucao do comando 'poligonos')
+        n_cont = 0
+        fechados = []
+        for pts in _poligonos_nivel(por_nivel[z]):
+            xy, _per, area = _poligono_metrico(pts)
+            if area <= 1e-6:
+                continue
+            ps = [f.create_entity('IfcCartesianPoint', Coordinates=(x, y, 0.0))
+                  for x, y in xy]
+            ps.append(ps[0])
+            fechados.append(f.create_entity('IfcPolyline', Points=ps))
+        if fechados:
+            n_cont = len(fechados)
+            reps.append(f.create_entity('IfcShapeRepresentation', ContextOfItems=ctx,
+                                        RepresentationIdentifier='Contorno',
+                                        RepresentationType='GeometricCurveSet',
+                                        Items=[f.create_entity('IfcGeometricCurveSet',
+                                                               Elements=fechados)]))
         p.Representation = f.create_entity('IfcProductDefinitionShape',
-                                           Representations=[rep])
+                                           Representations=reps)
         props = f.create_entity('IfcPropertySet', GlobalId=G(),
                                 Name='Pset_RevitImport', HasProperties=[
                                     f.create_entity('IfcPropertySingleValue', Name='Linhas',
                                                     NominalValue=f.create_entity('IfcInteger', len(itens))),
+                                    f.create_entity('IfcPropertySingleValue', Name='Contornos',
+                                                    NominalValue=f.create_entity('IfcInteger', n_cont)),
                                     f.create_entity('IfcPropertySingleValue', Name='Fonte',
                                                     NominalValue=f.create_entity('IfcLabel', 'Partitions/3 type-4')),
                                 ])
@@ -382,8 +402,15 @@ def cmd_poligonos(rvt, saida='contornos.dxf', min_lados=3):
     import os
     st = read_stream(rvt, 'Partitions/3')
     linhas = extrai_curvas_t4(st['data'])
+    # mesma deduplicacao do 'ifc' (segmentos repetidos quebram o tracado)
+    vistos = set()
     por_nivel = collections.defaultdict(list)
     for l in linhas:
+        key = (round(l['x1'], 3), round(l['y1'], 3), round(l['x2'], 3),
+               round(l['y2'], 3), round(l['z'], 2))
+        if key in vistos:
+            continue
+        vistos.add(key)
         por_nivel[round(l['z'], 3)].append(l)
 
     doc = ezdxf.new('R2010', setup=True)
