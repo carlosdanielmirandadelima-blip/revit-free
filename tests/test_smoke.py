@@ -77,6 +77,18 @@ def main():
     except ImportError:
         print('  (ezdxf ausente — teste de contornos pulado)')
 
+    print('catalogo')
+    cp2 = os.path.join(tmp, 'catalogo.csv')
+    r = roda('catalogo', AMOSTRA, cp2)
+    checa(r.returncode == 0 and os.path.exists(cp2), 'CSV de catalogo gerado')
+    if os.path.exists(cp2):
+        linhas_cat = [l for l in open(cp2).read().splitlines() if l.strip()]
+        checa(linhas_cat and linhas_cat[0] == 'nome,classe,id', 'cabecalho do catalogo')
+        checa(len(linhas_cat) > 100, 'catalogo com mais de 100 registros (%d)' % (len(linhas_cat)-1))
+        campos = [l.split(',') for l in linhas_cat[1:]]
+        checa(all(len(c) == 3 for c in campos), 'tres colunas em todas as linhas')
+        checa(len(set(c[2] for c in campos)) > 0.9 * len(campos), 'ids praticamente unicos')
+
     print('ifc')
     ip = os.path.join(tmp, 'modelo.ifc')
     r = roda('ifc', AMOSTRA, ip)

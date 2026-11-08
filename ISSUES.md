@@ -126,13 +126,28 @@ Testes feitos e descartados — registrados para poupar retrabalho:
    via marcadores `5d 02`), mas o campo `tipo_idx` é a primeira pista de
    categoria numérica que não depende do ElemTable.
 
+11. **Tabela de vértices existe, mas o layout varia**: registros
+   `ff ff ff ff | 04 80 08 01 | …` com 3–4 doubles de coordenada (ex.:
+   `-0.666, 65.25, 89.26`) aparecem 102 vezes no chunk de geometria do avançado.
+   A posição dos doubles muda de registro para registro (só 26/102 casam em
+   `p+4`, 102/102 em `p+8` *e* em `p+16`), então não há stride fixo: sem o
+   schema do serializador não dá para montar índice → vértice.
+12. **Ids de elemento nunca aparecem na geometria**: extraí 668 ids reais de
+   elemento (faixa 235–313.698, 86k+ na maioria) e procurei cada um no chunk de
+   geometria: **1 coincidência** (id pequeno repetido 290×, acidental). Não há
+   campo de id de elemento nos registros de geometria.
+
 **Entregue no lugar disso** (não depende do link): `rvttool poligonos`
 reconstroi contornos fechados das curvas e exporta DXF `LWPOLYLINE` + JSON com
 perímetro e área por nível, e o `ifc` inclui esses contornos no pavimento como
 representação `Contorno`. No projeto avançado: 76 contornos (nível 0: 68,
 mediana 76 m²; níveis 4,37 e 8,17 m: 4 contornos de 241 m² cada).
 É geometria medida e conferida, mas sem semântica de elemento (não é parede
-com categoria/material).
+com categoria/material). Também saiu `rvttool catalogo`: registros de símbolo de
+anotação com `nome`, `classe` (estável por nome, igual nos dois arquivos, mas
+compartilhada por nomes parecidos — classe de símbolo, não categoria) e `id`
+real. Não resolve o link, mas pela primeira vez temos ids de elemento
+associados a nomes de forma verificável.
 
 O caminho para fechar o item continua sendo decodificar o sistema de
 referências do DB (arrays de offsets + contêineres type-1) ou a seção

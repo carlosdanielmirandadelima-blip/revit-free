@@ -460,6 +460,49 @@ def cmd_poligonos(rvt, saida='contornos.dxf', min_lados=3):
     print('  obs: contorno geometrico (sem elemento/material associado)')
 
 
+# ---------------------------------------------------------------- catalogo
+# Registros de simbolo/anotacao no formato [01 00 00 00][ptr][01 00 00 00][len]
+# [nome UTF-16][classe u32][id u32]. A 'classe' e estavel por nome e igual nos
+# dois arquivos de amostra (ex.: 'Arrowhead 1' = 170), mas e compartilhada por
+# nomes parecidos ('Diagonal 1/8"', 'Diagonal 3 mm', 'Heavy End 3mm' = 174),
+# ou seja: classe de simbolo, nao categoria de elemento. O id cai na faixa do
+# ElemTable (86k+) e e unico por registro.
+
+def cmd_catalogo(rvt, saida='catalogo.csv'):
+    import csv
+    d = read_stream(rvt, 'Partitions/3')['data']
+    recs = []
+    for m in re.finditer(rb'\x01\x00\x00\x00(.{4})\x01\x00\x00\x00(.{4})', d, re.S):
+        L = struct.unpack('<I', m.group(2))[0]
+        if not (3 <= L <= 80):
+            continue
+        o = m.end()
+        if o + 2 * L + 8 > len(d):
+            continue
+        try:
+            t = d[o:o + 2 * L].decode('utf-16-le')
+        except Exception:
+            continue
+        if not t or not all(32 <= ord(c) < 0x300 for c in t):
+            continue
+        classe, eid = struct.unpack_from('<2I', d, o + 2 * L)
+        if eid >= 4_000_000:
+            continue
+        recs.append((t.rstrip(), classe, eid))
+    with open(saida, 'w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(['nome', 'classe', 'id'])
+        w.writerows(sorted(recs, key=lambda r: (r[1], r[0], r[2])))
+    classes = collections.Counter(c for _, c, _ in recs)
+    print('registros: %d | nomes: %d | classes: %d | ids unicos: %d -> %s' % (
+        len(recs), len(set(r[0] for r in recs)), len(classes),
+        len(set(r[2] for r in recs)), saida))
+    for c, n in classes.most_common(6):
+        ex = sorted(set(r[0] for r in recs if r[1] == c))[:3]
+        print('  classe %-4d %3dx  %s' % (c, n, ', '.join(ex)))
+    print('  obs: classe de simbolo de anotacao (nao e categoria de elemento)')
+
+
 def cmd_macro(rvt, saida='revit_import.FCMacro'):
     st = read_stream(rvt, 'Partitions/3')
     linhas = extrai_curvas_t4(st['data'])
@@ -540,6 +583,8 @@ def main():
         cmd_ifc(rvt, sys.argv[3] if len(sys.argv) > 3 else 'modelo.ifc')
     elif cmd == 'poligonos':
         cmd_poligonos(rvt, sys.argv[3] if len(sys.argv) > 3 else 'contornos.dxf')
+    elif cmd == 'catalogo':
+        cmd_catalogo(rvt, sys.argv[3] if len(sys.argv) > 3 else 'catalogo.csv')
     elif cmd == 'exporta':
         cmd_exporta(rvt,
                     sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',

@@ -36,6 +36,16 @@ Exemplos prontos em `exemplos/` (`.FCMacro`, `.dxf`, `.FCStd`).
 Alternativa leve: `rvttool dxf` gera DXF R2010 com uma camada por nivel
 (`NIVEL_+0.000`, `NIVEL_+4.370`, ...) — abre nativamente no FreeCAD.
 
+### Catalogo de simbolos de anotacao
+
+`rvttool catalogo arquivo.rvt catalogo.csv` extrai os registros
+`[01 00 00 00][ptr][01 00 00 00][len][nome UTF-16][classe u32][id u32]` e grava
+`nome,classe,id`. Amostra avancada: 669 registros, 30 nomes, 15 classes, 668 ids
+unicos (faixa 86k+, a mesma do ElemTable). A `classe` e estavel por nome e igual
+nos dois arquivos de amostra (`Arrowhead 1` = 170), mas e **compartilhada** por
+nomes parecidos (`Diagonal 1/8"`, `Diagonal 3 mm`, `Heavy End 3mm` = 174) —
+por isso e documentada como classe de simbolo, nao como categoria de elemento.
+
 ### Contornos fechados
 
 `rvttool poligonos arquivo.rvt contornos.dxf` reconstroi os **contornos
@@ -80,6 +90,7 @@ python3 src/rvttool.py dxf    arquivo.rvt planta.dxf        # DXF por nivel
 python3 src/rvttool.py macro  arquivo.rvt import.FCMacro    # macro FreeCAD
 python3 src/rvttool.py ifc    arquivo.rvt modelo.ifc        # IFC4 (pavimentos)
 python3 src/rvttool.py poligonos arquivo.rvt contornos.dxf   # contornos fechados (DXF+JSON)
+python3 src/rvttool.py catalogo arquivo.rvt catalogo.csv     # simbolos: nome, classe, id
 ```
 
 Teste de fumaca (roda tudo sobre a amostra avancada e valida os invariantes):
@@ -153,6 +164,7 @@ Veja `exemplos/elementos_amostra.json` e `docs/ESTRUTURA.md`.
       validado reabrindo com ifcopenshell 0.9.0
 - [x] **Contornos fechados** (`poligonos`) — reconstrucao de poligonais com
       perimetro/area por nivel (nivel 0 avancado: 131 contornos)
+- [x] **Catalogo de simbolos** (`catalogo`) com nome, classe e id real
 - [x] **Testes de fumaca** (`tests/test_smoke.py`)
 - [ ] Vinculo elemento→geometria (issue 3) — bloqueia `IfcWall`/`IfcSlab` reais
 - [ ] Vértices de sólido (teselação identificada)
