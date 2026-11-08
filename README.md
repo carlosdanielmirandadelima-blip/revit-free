@@ -222,6 +222,11 @@ Veja `exemplos/elementos_amostra.json` e `docs/ESTRUTURA.md`.
 - [ ] Vértices de sólido (teselação identificada)
 - [ ] Parâmetros completos por elemento
 
+## Resumo do projeto
+
+O que ja funciona, com numeros medidos, o que esta bloqueado e por que, limites
+conhecidos e ordem sugerida para continuar: **[`docs/RESUMO.md`](docs/RESUMO.md)**.
+
 ## Aviso legal
 
 Projeto de interoperabilidade: análise própria do formato, sem código da Autodesk.
