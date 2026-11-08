@@ -98,6 +98,30 @@ que o Revit reconhece e limitacoes: `docs/REVIT_SAIDA.md`.
 Exemplos prontos: `exemplos/casa_demo_spec.json`,
 `exemplos/casa_demo_IFC4.ifc`, `exemplos/casa_demo_IFC2X3.ifc`.
 
+## Ida e volta: Revit/AutoCAD -> FreeCAD -> Revit
+
+O ciclo funciona por IFC, e o lado do FreeCAD e **lossless** (medido):
+
+```bash
+python3 src/rt_freecad.py entrada.ifc saida.ifc          # edita/abre e salva IFC
+python3 src/rt_freecad.py entrada.ifc saida.ifc --renomear "Parede Norte=Nova"
+python3 src/ifc_diff.py antes.ifc depois.ifc             # mede o que sobreviveu
+```
+
+Medicao real (7 paredes, 2 lajes, 3 vaos, 2 pavimentos): **50/50 GUIDs
+preservados**, volumes com diferenca maxima **0,000000 m3**, psets e
+pavimentos intactos; ao renomear uma parede, 11 de 12 nomes ficam iguais.
+Aviso importante: usar o exportador generico do FreeCAD
+(`importers.exportIFC`) num documento NativeIFC **destroi** o arquivo
+(2 pavimentos -> 0, 9 psets -> 0, 50 GUIDs -> 0 comuns). Use
+`ifc_tools.save_ifc` — o `rt_freecad.py` ja faz isso.
+
+"Sem perder nada" entre Revit e qualquer outra ferramenta **nao existe**:
+familias, ids de elemento, parametros nao mapeados, vistas, pranchas, cotas,
+fases e worksets nao tem representacao em IFC. Tabela completa do que se perde,
+como configurar a exportacao do Revit, *Abrir IFC* vs *Vincular IFC* e o caso
+DWG/AutoCAD: `docs/ROUNDTRIP.md`.
+
 ## Uso
 
 ```bash
@@ -124,6 +148,7 @@ gerador de IFC nos dois schemas):
 ```bash
 python3 tests/test_smoke.py
 python3 tests/test_criar_ifc.py
+python3 tests/test_roundtrip.py     # inclui ida e volta pelo FreeCAD
 ```
 
 **`exporta`** gera um JSON com cada registro de elemento: `id`, `grupo`
