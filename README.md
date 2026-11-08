@@ -36,6 +36,19 @@ Exemplos prontos em `exemplos/` (`.FCMacro`, `.dxf`, `.FCStd`).
 Alternativa leve: `rvttool dxf` gera DXF R2010 com uma camada por nivel
 (`NIVEL_+0.000`, `NIVEL_+4.370`, ...) — abre nativamente no FreeCAD.
 
+### IFC (BIM)
+
+`rvttool ifc arquivo.rvt modelo.ifc` gera um IFC4 com `IfcProject` → `IfcSite`
+→ `IfcBuilding` → um `IfcBuildingStorey` por nivel, cada pavimento com a
+geometria de referencia (`IfcGeometricCurveSet` de `IfcPolyline`) e um
+`Pset_RevitImport`. Unidades em metros; niveis com menos de 4 curvas sao
+descartados como ruido (niveis espurios de 1-3 linhas). Testado com
+`ifcopenshell 0.9.0` (reabre e itera a geometria).
+
+A geometria entra como **referencia** dentro do pavimento, nao como
+`IfcWall`/`IfcSlab`: o vinculo elemento→geometria ainda nao foi decodificado
+(ver `ISSUES.md`, item 3).
+
 ## Uso
 
 ```bash
@@ -48,6 +61,16 @@ python3 src/rvttool.py elementos arquivo.rvt                # árvore + resumo
 python3 src/rvttool.py exporta arquivo.rvt elementos.json   # TODOS os elementos
 python3 src/rvttool.py paredes arquivo.rvt paredes.json     # location lines
 python3 src/rvttool.py plano  arquivo.rvt plano.svg         # planta 2D (SVG)
+python3 src/rvttool.py curvas arquivo.rvt curvas.json       # curvas type-4 (JSON)
+python3 src/rvttool.py dxf    arquivo.rvt planta.dxf        # DXF por nivel
+python3 src/rvttool.py macro  arquivo.rvt import.FCMacro    # macro FreeCAD
+python3 src/rvttool.py ifc    arquivo.rvt modelo.ifc        # IFC4 (pavimentos)
+```
+
+Teste de fumaca (roda tudo sobre a amostra avancada e valida os invariantes):
+
+```bash
+python3 tests/test_smoke.py
 ```
 
 **`exporta`** gera um JSON com cada registro de elemento: `id`, `grupo`
@@ -109,6 +132,12 @@ Veja `exemplos/elementos_amostra.json` e `docs/ESTRUTURA.md`.
 - [ ] Seção principal do ElemTable (delta/bit-packed)
 - [x] **Location lines de paredes decodificadas** (auto-validadas:
       `hypot(dx,dy) == comprimento`) — `rvttool plano` gera a planta em SVG
+- [x] **Importador FreeCAD** (`macro`, `dxf`) — planta por nivel + planilha
+      de elementos, testado no FreeCAD 1.1.4
+- [x] **Export IFC4** (`ifc`) — pavimentos + geometria de referencia,
+      validado reabrindo com ifcopenshell 0.9.0
+- [x] **Testes de fumaca** (`tests/test_smoke.py`)
+- [ ] Vinculo elemento→geometria (issue 3) — bloqueia `IfcWall`/`IfcSlab` reais
 - [ ] Vértices de sólido (teselação identificada)
 - [ ] Parâmetros completos por elemento
 

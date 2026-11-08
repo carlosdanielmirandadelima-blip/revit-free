@@ -1610,34 +1610,6 @@ obj.Label = "NIVEL_+0.000"
 obj.Shape = Part.Shape(comp)
 grp.addObject(obj)
 
-grp = doc.addObject("App::DocumentObjectGroup", "NIVEL_+0.163")
-grp.Label = "NIVEL_+0.163 (linhas de localizacao)"
-comp = []
-comp.append(Part.LineSegment(App.Vector(0.139700, 0.003175, 0.163000), App.Vector(0.139700, -0.000000, 0.163000)))
-obj = doc.addObject("Part::Feature", "NIVEL_+0.163")
-obj.Label = "NIVEL_+0.163"
-obj.Shape = Part.Shape(comp)
-grp.addObject(obj)
-
-grp = doc.addObject("App::DocumentObjectGroup", "NIVEL_+0.166")
-grp.Label = "NIVEL_+0.166 (linhas de localizacao)"
-comp = []
-comp.append(Part.LineSegment(App.Vector(0.152400, 0.003175, 0.166000), App.Vector(0.152400, -0.000000, 0.166000)))
-comp.append(Part.LineSegment(App.Vector(-0.139700, -0.000000, 0.166000), App.Vector(-0.139700, 0.003175, 0.166000)))
-obj = doc.addObject("Part::Feature", "NIVEL_+0.166")
-obj.Label = "NIVEL_+0.166"
-obj.Shape = Part.Shape(comp)
-grp.addObject(obj)
-
-grp = doc.addObject("App::DocumentObjectGroup", "NIVEL_+0.170")
-grp.Label = "NIVEL_+0.170 (linhas de localizacao)"
-comp = []
-comp.append(Part.LineSegment(App.Vector(-0.152400, -0.000000, 0.170000), App.Vector(-0.152400, 0.003175, 0.170000)))
-obj = doc.addObject("Part::Feature", "NIVEL_+0.170")
-obj.Label = "NIVEL_+0.170"
-obj.Shape = Part.Shape(comp)
-grp.addObject(obj)
-
 grp = doc.addObject("App::DocumentObjectGroup", "NIVEL_+4.370")
 grp.Label = "NIVEL_+4.370 (linhas de localizacao)"
 comp = []

@@ -145,7 +145,8 @@ def extrai_curvas_t4(data):
         dist = math.hypot(x2-x1, y2-y1)
         ok_prox = (i+1 >= len(pos)) or (pos[i+1] == s+109)
         if (cnts[0] == 4 and abs(q1) < 1e-9 and abs(z9) < 1e-100
-                and abs(dist-L) < 0.02*max(1, abs(L)) and ok_prox):
+                and abs(dist-L) < 0.02*max(1, abs(L)) and ok_prox
+                and abs(L) > 1e-9):
             linhas.append({'x1': x1, 'y1': y1, 'z': z1, 'x2': x2, 'y2': y2,
                            'comp': L, 'ref': cnts[5], 'item': cnts[1]})
         i += 1
@@ -200,6 +201,109 @@ def cmd_dxf(rvt, saida='planta.dxf'):
 # Gera um .FCMacro autocontido: ao executa-lo no FreeCAD (Macro > Macros...),
 # cria um documento com as linhas de localizacao por nivel (Part::Feature)
 # e uma planilha com o inventario de elementos nomeados.
+
+# ---------------------------------------------------------------- ifc (BIM)
+# Exporta IFC4: um IfcBuildingStorey por nivel, com a geometria de referencia
+# (location lines type-4 validadas) como IfcGeometricCurveSet. Unidades em metros.
+# A atribuicao elemento->geometria ainda nao foi decodificada (issue 3), por isso
+# as curvas vao como referencia dentro do pavimento, nao como IfcWall/IfcSlab.
+
+def cmd_ifc(rvt, saida='modelo.ifc', min_curvas=4):
+    import ifcopenshell, ifcopenshell.guid
+    st = read_stream(rvt, 'Partitions/3')
+    linhas = extrai_curvas_t4(st['data'])
+    PE = 0.3048
+    por_nivel = collections.defaultdict(list)
+    vistos = set()
+    for l in linhas:
+        key = (round(l['x1'], 3), round(l['y1'], 3), round(l['x2'], 3),
+               round(l['y2'], 3), round(l['z'], 2))
+        if key in vistos:
+            continue
+        vistos.add(key)
+        por_nivel[round(l['z'] * PE, 3)].append(l)
+    # niveis com poucas curvas sao ruido de conversao (1-3 linhas isoladas)
+    ruido = {z: len(v) for z, v in por_nivel.items() if len(v) < min_curvas}
+    for z in ruido:
+        del por_nivel[z]
+    if ruido:
+        print('niveis descartados (<%d curvas): %s' % (
+            min_curvas, ', '.join('%+.3f(%d)' % (z, n) for z, n in sorted(ruido.items()))))
+    if not por_nivel:
+        print('nenhuma curva valida — nada a exportar')
+        return
+
+    f = ifcopenshell.file(schema='IFC4')
+    G = ifcopenshell.guid.new
+
+    unidade = f.create_entity(
+        'IfcUnitAssignment', Units=[
+            f.create_entity('IfcSIUnit', UnitType='LENGTHUNIT', Name='METRE'),
+            f.create_entity('IfcSIUnit', UnitType='AREAUNIT', Name='SQUARE_METRE'),
+            f.create_entity('IfcSIUnit', UnitType='VOLUMEUNIT', Name='CUBIC_METRE'),
+            f.create_entity('IfcSIUnit', UnitType='PLANEANGLEUNIT', Name='RADIAN'),
+        ])
+    proj = f.create_entity('IfcProject', GlobalId=G(), Name='Revit import (rvttool)',
+                           UnitsInContext=unidade)
+
+    origem = f.create_entity('IfcCartesianPoint', Coordinates=(0.0, 0.0, 0.0))
+    eixo = f.create_entity('IfcAxis2Placement3D', Location=origem)
+    ctx = f.create_entity('IfcGeometricRepresentationContext',
+                          ContextIdentifier='Model', ContextType='Model',
+                          CoordinateSpaceDimension=3, Precision=1e-5,
+                          WorldCoordinateSystem=eixo)
+    proj.RepresentationContexts = [ctx]
+
+    site = f.create_entity('IfcSite', GlobalId=G(), Name='Site')
+    edif = f.create_entity('IfcBuilding', GlobalId=G(), Name='Edificacao')
+    f.create_entity('IfcRelAggregates', GlobalId=G(), RelatingObject=proj,
+                    RelatedObjects=[site])
+    f.create_entity('IfcRelAggregates', GlobalId=G(), RelatingObject=site,
+                    RelatedObjects=[edif])
+
+    pavimentos = []
+    for z in sorted(por_nivel):
+        p = f.create_entity('IfcBuildingStorey', GlobalId=G(),
+                            Name='Nivel %+.3f m' % z, Elevation=z)
+        pavimentos.append((p, z))
+    f.create_entity('IfcRelAggregates', GlobalId=G(), RelatingObject=edif,
+                    RelatedObjects=[p for p, _ in pavimentos])
+
+    total = 0
+    for p, z in pavimentos:
+        itens = []
+        for l in por_nivel[z]:
+            a = f.create_entity('IfcCartesianPoint',
+                                Coordinates=(l['x1'] * PE, l['y1'] * PE, 0.0))
+            b = f.create_entity('IfcCartesianPoint',
+                                Coordinates=(l['x2'] * PE, l['y2'] * PE, 0.0))
+            itens.append(f.create_entity('IfcPolyline', Points=[a, b]))
+        if not itens:
+            continue
+        total += len(itens)
+        curvas = f.create_entity('IfcGeometricCurveSet', Elements=itens)
+        rep = f.create_entity('IfcShapeRepresentation', ContextOfItems=ctx,
+                              RepresentationIdentifier='Reference',
+                              RepresentationType='GeometricCurveSet',
+                              Items=[curvas])
+        p.Representation = f.create_entity('IfcProductDefinitionShape',
+                                           Representations=[rep])
+        props = f.create_entity('IfcPropertySet', GlobalId=G(),
+                                Name='Pset_RevitImport', HasProperties=[
+                                    f.create_entity('IfcPropertySingleValue', Name='Linhas',
+                                                    NominalValue=f.create_entity('IfcInteger', len(itens))),
+                                    f.create_entity('IfcPropertySingleValue', Name='Fonte',
+                                                    NominalValue=f.create_entity('IfcLabel', 'Partitions/3 type-4')),
+                                ])
+        f.create_entity('IfcRelDefinesByProperties', GlobalId=G(),
+                        RelatedObjects=[p], RelatingPropertyDefinition=props)
+
+    f.write(saida)
+    print('IFC salvo em %s' % saida)
+    print('  pavimentos: %d | curvas de referencia: %d' % (len(pavimentos), total))
+    print('  niveis (m): %s' % ', '.join('%+.3f' % z for z in sorted(por_nivel)))
+    print('  obs: geometria como referencia (elemento->geometria ainda nao decodificado)')
+
 
 def cmd_macro(rvt, saida='revit_import.FCMacro'):
     st = read_stream(rvt, 'Partitions/3')
@@ -277,6 +381,8 @@ def main():
         cmd_dxf(rvt, sys.argv[3] if len(sys.argv) > 3 else 'planta.dxf')
     elif cmd == 'macro':
         cmd_macro(rvt, sys.argv[3] if len(sys.argv) > 3 else 'revit_import.FCMacro')
+    elif cmd == 'ifc':
+        cmd_ifc(rvt, sys.argv[3] if len(sys.argv) > 3 else 'modelo.ifc')
     elif cmd == 'exporta':
         cmd_exporta(rvt,
                     sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',
