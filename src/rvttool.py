@@ -305,6 +305,134 @@ def cmd_ifc(rvt, saida='modelo.ifc', min_curvas=4):
     print('  obs: geometria como referencia (elemento->geometria ainda nao decodificado)')
 
 
+# ---------------------------------------------------------------- poligonos
+# Reconstroi contornos fechados a partir das curvas type-4: agrupa extremos
+# com tolerancia (1 cm), traca cadeias preferindo o menor angulo de virada
+# (segue a parede em vez de cortar caminho) e fecha quando volta ao inicio.
+# Saida em metros: DXF com LWPOLYLINE fechada + JSON com perimetro/area.
+
+def _poligonos_nivel(curvas, PE=0.3048, tol=0.01, min_lados=3):
+    def nid(x, y):
+        return (round(x * PE / tol), round(y * PE / tol))
+
+    arestas = []
+    adj = collections.defaultdict(list)
+    for l in curvas:
+        a, b = nid(l['x1'], l['y1']), nid(l['x2'], l['y2'])
+        if a == b:
+            continue
+        k = len(arestas)
+        arestas.append((a, b))
+        adj[a].append(k)
+        adj[b].append(k)
+
+    usado = set()
+    polis = []
+    for i in range(len(arestas)):
+        if i in usado:
+            continue
+        usado.add(i)
+        a, b = arestas[i]
+        pts, ini, atual = [a, b], a, b
+        while True:
+            cand = [j for j in adj[atual] if j not in usado]
+            if not cand:
+                break
+            if len(cand) > 1:
+                vx, vy = atual[0] - pts[-2][0], atual[1] - pts[-2][1]
+                nv = math.hypot(vx, vy) or 1
+
+                def ang(j, _atual=atual, _vx=vx, _vy=vy, _nv=nv):
+                    e = arestas[j]
+                    e2 = e[1] if e[0] == _atual else e[0]
+                    wx, wy = e2[0] - _atual[0], e2[1] - _atual[1]
+                    nw = math.hypot(wx, wy) or 1
+                    return 1 - (_vx * wx + _vy * wy) / (_nv * nw)
+                cand.sort(key=ang)
+            j = cand[0]
+            usado.add(j)
+            e = arestas[j]
+            prox = e[1] if e[0] == atual else e[0]
+            if prox == ini:
+                if len(pts) + 1 >= min_lados:
+                    polis.append(pts)
+                break
+            pts.append(prox)
+            atual = prox
+    return polis
+
+
+def _poligono_metrico(pts, PE=0.3048, tol=0.01):
+    """Converte ids de grade para metros e devolve (xy, perimetro, area)."""
+    xy = [(p[0] * tol / PE, p[1] * tol / PE) for p in pts]
+    per = 0.0
+    area = 0.0
+    n = len(xy)
+    for i in range(n):
+        x1, y1 = xy[i]
+        x2, y2 = xy[(i + 1) % n]
+        per += math.hypot(x2 - x1, y2 - y1)
+        area += x1 * y2 - x2 * y1
+    return xy, per, abs(area) / 2.0
+
+
+def cmd_poligonos(rvt, saida='contornos.dxf', min_lados=3):
+    import ezdxf
+    import json
+    import os
+    st = read_stream(rvt, 'Partitions/3')
+    linhas = extrai_curvas_t4(st['data'])
+    por_nivel = collections.defaultdict(list)
+    for l in linhas:
+        por_nivel[round(l['z'], 3)].append(l)
+
+    doc = ezdxf.new('R2010', setup=True)
+    msp = doc.modelspace()
+    resumo = []
+    for z in sorted(por_nivel):
+        polis = _poligonos_nivel(por_nivel[z])
+        if not polis:
+            continue
+        z_m = z * 0.3048
+        camada = 'CONTORNO_%+.3f' % z_m
+        if camada not in doc.layers:
+            doc.layers.add(camada)
+        itens = []
+        for pts in polis:
+            xy, per, area = _poligono_metrico(pts)
+            if area <= 1e-6:
+                continue
+            itens.append({'lados': len(xy), 'perimetro_m': round(per, 3),
+                          'area_m2': round(area, 3),
+                          'xy': [[round(x, 3), round(y, 3)] for x, y in xy]})
+        if not itens:
+            continue
+        itens.sort(key=lambda i: -i['area_m2'])
+        areas = sorted(i['area_m2'] for i in itens)
+        mediana = areas[len(areas) // 2]
+        # lacos muito maiores que a mediana costumam ser tracejado por linhas de
+        # grade/site, nao um ambiente: ficam no arquivo, mas marcados
+        for i in itens:
+            if mediana > 0 and i['area_m2'] > 20 * mediana:
+                i['suspeita'] = 'laco_muito_grande'
+            msp.add_lwpolyline([tuple(p) for p in i['xy']], close=True,
+                               dxfattribs={'layer': camada})
+        resumo.append({'nivel_m': round(z_m, 3), 'poligonos': len(itens),
+                       'area_total_m2': round(sum(i['area_m2'] for i in itens), 3),
+                       'area_mediana_m2': round(mediana, 3),
+                       'area_max_m2': areas[-1]})
+        print('  nivel %+.3f m: %d contornos | area total %.1f m2 | mediana %.1f m2 '
+              '| maior %.1f m2' % (z_m, len(itens),
+                                  sum(i['area_m2'] for i in itens), mediana, areas[-1]))
+        json.dump(itens, open('%s_%+.3f.json' % (os.path.splitext(saida)[0], z_m), 'w'))
+
+    doc.saveas(saida)
+    total = sum(r['poligonos'] for r in resumo)
+    print('contornos fechados: %d em %d niveis -> %s (+ JSON por nivel)' % (
+        total, len(resumo), saida))
+    print('  obs: contorno geometrico (sem elemento/material associado)')
+
+
 def cmd_macro(rvt, saida='revit_import.FCMacro'):
     st = read_stream(rvt, 'Partitions/3')
     linhas = extrai_curvas_t4(st['data'])
@@ -383,6 +511,8 @@ def main():
         cmd_macro(rvt, sys.argv[3] if len(sys.argv) > 3 else 'revit_import.FCMacro')
     elif cmd == 'ifc':
         cmd_ifc(rvt, sys.argv[3] if len(sys.argv) > 3 else 'modelo.ifc')
+    elif cmd == 'poligonos':
+        cmd_poligonos(rvt, sys.argv[3] if len(sys.argv) > 3 else 'contornos.dxf')
     elif cmd == 'exporta':
         cmd_exporta(rvt,
                     sys.argv[3] if len(sys.argv) > 3 else 'elementos.json',

@@ -36,6 +36,17 @@ Exemplos prontos em `exemplos/` (`.FCMacro`, `.dxf`, `.FCStd`).
 Alternativa leve: `rvttool dxf` gera DXF R2010 com uma camada por nivel
 (`NIVEL_+0.000`, `NIVEL_+4.370`, ...) — abre nativamente no FreeCAD.
 
+### Contornos fechados
+
+`rvttool poligonos arquivo.rvt contornos.dxf` reconstroi os **contornos
+fechados** das curvas (extremidades agrupadas com tolerancia de 1 cm, tracado
+preferindo o menor angulo de virada) e grava `LWPOLYLINE` fechada por contorno,
+mais um JSON por nivel com `lados`, `perimetro_m`, `area_m2` e o vetor de
+pontos. Amostra avancada: 131 contornos (nivel 0: mediana 62 m2; niveis
+superiores: 4 contornos de 240 m2 = a laje). Contornos maiores que 20x a
+mediana ganham `"suspeita": "laco_muito_grande"` — normalmente sao tracejados
+por linhas de grade/site, nao ambientes.
+
 ### IFC (BIM)
 
 `rvttool ifc arquivo.rvt modelo.ifc` gera um IFC4 com `IfcProject` → `IfcSite`
@@ -65,6 +76,7 @@ python3 src/rvttool.py curvas arquivo.rvt curvas.json       # curvas type-4 (JSO
 python3 src/rvttool.py dxf    arquivo.rvt planta.dxf        # DXF por nivel
 python3 src/rvttool.py macro  arquivo.rvt import.FCMacro    # macro FreeCAD
 python3 src/rvttool.py ifc    arquivo.rvt modelo.ifc        # IFC4 (pavimentos)
+python3 src/rvttool.py poligonos arquivo.rvt contornos.dxf   # contornos fechados (DXF+JSON)
 ```
 
 Teste de fumaca (roda tudo sobre a amostra avancada e valida os invariantes):
@@ -136,6 +148,8 @@ Veja `exemplos/elementos_amostra.json` e `docs/ESTRUTURA.md`.
       de elementos, testado no FreeCAD 1.1.4
 - [x] **Export IFC4** (`ifc`) — pavimentos + geometria de referencia,
       validado reabrindo com ifcopenshell 0.9.0
+- [x] **Contornos fechados** (`poligonos`) — reconstrucao de poligonais com
+      perimetro/area por nivel (nivel 0 avancado: 131 contornos)
 - [x] **Testes de fumaca** (`tests/test_smoke.py`)
 - [ ] Vinculo elemento→geometria (issue 3) — bloqueia `IfcWall`/`IfcSlab` reais
 - [ ] Vértices de sólido (teselação identificada)

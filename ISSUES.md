@@ -92,6 +92,29 @@ Testes feitos e descartados — registrados para poupar retrabalho:
    ser filtrados em `extrai_curvas_t4`; isso limpou o DXF/IFC sem perder
    geometria real.
 
+5. **Ponteiros são relativos ao chunk**: nenhuma referência absoluta ao
+   offset de uma curva (procurei o u32 do offset em todo o DB, inclusive
+   offset±3: zero ocorrências). Cada registro gzip decodifica um grafo de
+   objetos independente, com índices locais — então atribuição exige parsear
+   o grafo dentro de cada chunk, não uma tabela global.
+6. **Chunks de geometria não têm nomes**: o chunk que contém as curvas
+   (avançado, `#220`, 82 KB, geometria em +20.996) tem 66 strings UTF-16 e
+   **nenhuma** é nome de elemento — são bytes binários que casam com o padrão
+   de texto por acidente. Geometria e nomes vivem em chunks diferentes.
+7. **Família de registros de 48 bytes**: `ff ff ff ff | 04 82 08 00 | [A] |
+   72 04 00 00 | ... | 04 00 00 00 | ff ff ff ff | [B=A+1] | d8 01 | [C]`,
+   com `A` incrementando 1 por registro e `C` subindo de 4 em 4 (1, 52, 55,
+   59, 63...). 17.024 ocorrências no projeto avançado. Parece a indexação
+   interna que liga curva → objeto, mas o mapeamento objeto → elemento
+   continua desconhecido.
+
+**Entregue no lugar disso** (não depende do link): `rvttool poligonos`
+reconstroi contornos fechados das curvas e exporta DXF `LWPOLYLINE` + JSON com
+perímetro e área por nível. No projeto avançado: 131 contornos (nível 0:
+mediana 62 m²; níveis 4,37 e 8,17 m: 4 contornos de 240 m² cada).
+É geometria medida e conferida, mas sem semântica de elemento (não é parede
+com categoria/material).
+
 O caminho para fechar o item continua sendo decodificar o sistema de
 referências do DB (arrays de offsets + contêineres type-1) ou a seção
 bit-packed do ElemTable.

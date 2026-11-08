@@ -56,6 +56,27 @@ def main():
     r = roda('dxf', AMOSTRA, dp)
     checa(r.returncode == 0 and os.path.getsize(dp) > 10000, 'DXF gerado')
 
+    print('poligonos')
+    pp = os.path.join(tmp, 'contornos.dxf')
+    r = roda('poligonos', AMOSTRA, pp)
+    checa(r.returncode == 0 and os.path.exists(pp), 'DXF de contornos gerado')
+    try:
+        import ezdxf
+        from ezdxf.recover import readfile
+        doc, aud = readfile(pp)
+        checa(len(aud.errors) == 0, 'DXF de contornos sem erros de auditoria')
+        pls = list(doc.modelspace().query('LWPOLYLINE'))
+        checa(len(pls) > 20, 'contornos fechados (%d)' % len(pls))
+        checa(all(p.closed for p in pls), 'todos os contornos fechados')
+        checa(all(len(p.get_points('xy')) >= 3 for p in pls), 'todo contorno tem >= 3 lados')
+        lado = [f for f in os.listdir(tmp) if f.startswith('contornos_') and f.endswith('.json')]
+        checa(len(lado) >= 1, 'JSON de contornos ao lado do DXF (%d)' % len(lado))
+        if lado:
+            dados = json.load(open(os.path.join(tmp, lado[0])))
+            checa(all(d['area_m2'] > 0 for d in dados), 'areas positivas no JSON de contornos')
+    except ImportError:
+        print('  (ezdxf ausente — teste de contornos pulado)')
+
     print('ifc')
     ip = os.path.join(tmp, 'modelo.ifc')
     r = roda('ifc', AMOSTRA, ip)
