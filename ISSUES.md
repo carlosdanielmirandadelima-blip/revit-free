@@ -137,6 +137,22 @@ Testes feitos e descartados — registrados para poupar retrabalho:
    geometria: **1 coincidência** (id pequeno repetido 290×, acidental). Não há
    campo de id de elemento nos registros de geometria.
 
+13. **Sem bbox nos registros de elemento (atribuição espacial inviável)**: os
+   registros de tipo de parede carregam parâmetros (ex.: espessura
+   `0.2952755905511811` m em "Exterior - Brick on Mtl. Stud"), mas nenhuma
+   caixa envolvente. Procurando as coordenadas de uma linha no DB inteiro,
+   elas aparecem em 5 chunks — **todos chunks de geometria** (#41, #54, #134,
+   #220, #242), nenhum com strings/nomes (chunk #242: 127 KB, 0 strings).
+   Como não existe bbox em registro de elemento nem nome em chunk de geometria,
+   a hipótese "curva ⊂ bbox do elemento" não tem de onde sair.
+14. **Pareamento de linhas paralelas não dá espessura**: testei inferir paredes
+   pareando segmentos paralelos (tolerância 1°, sobreposição ≥ 80%, match
+   1-para-1) no nível 0 do avançado: 1.119 segmentos → 343 pares, mas o
+   histograma de distâncias é plano (0,03–0,23 m espalhados: 40×0,04;
+   36×0,05; 32×0,03; 28×0,10; 10×0,20) — sem picos em espessuras de projeto
+   (0,09/0,14/0,20/0,30). Motivo: as curvas extraídas são linhas de locação
+   (eixo) e linhas de grade, não os dois paramentos da parede. Não serve.
+
 **Entregue no lugar disso** (não depende do link): `rvttool poligonos`
 reconstroi contornos fechados das curvas e exporta DXF `LWPOLYLINE` + JSON com
 perímetro e área por nível, e o `ifc` inclui esses contornos no pavimento como
