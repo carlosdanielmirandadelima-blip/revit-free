@@ -1,0 +1,192 @@
+{
+  "projeto": "Casa Demonstração",
+  "local": "Terreno",
+  "edificacao": "Residência",
+  "niveis": [
+    {
+      "nome": "Térreo",
+      "elevacao": 0.0,
+      "altura": 2.8
+    },
+    {
+      "nome": "Pavimento 1",
+      "elevacao": 2.8,
+      "altura": 2.8
+    }
+  ],
+  "paredes": [
+    {
+      "nivel": "Térreo",
+      "nome": "Parede Norte",
+      "p1": [
+        0,
+        0
+      ],
+      "p2": [
+        8,
+        0
+      ],
+      "espessura": 0.15,
+      "externo": true
+    },
+    {
+      "nivel": "Térreo",
+      "nome": "Parede Leste",
+      "p1": [
+        8,
+        0
+      ],
+      "p2": [
+        8,
+        6
+      ],
+      "espessura": 0.15,
+      "externo": true
+    },
+    {
+      "nivel": "Térreo",
+      "nome": "Parede Sul",
+      "p1": [
+        8,
+        6
+      ],
+      "p2": [
+        0,
+        6
+      ],
+      "espessura": 0.15,
+      "externo": true
+    },
+    {
+      "nivel": "Térreo",
+      "nome": "Parede Oeste",
+      "p1": [
+        0,
+        6
+      ],
+      "p2": [
+        0,
+        0
+      ],
+      "espessura": 0.15,
+      "externo": true
+    },
+    {
+      "nivel": "Térreo",
+      "nome": "Divisória",
+      "p1": [
+        4,
+        0
+      ],
+      "p2": [
+        4,
+        6
+      ],
+      "espessura": 0.1
+    },
+    {
+      "nivel": "Pavimento 1",
+      "nome": "P1 Norte",
+      "p1": [
+        0,
+        0
+      ],
+      "p2": [
+        8,
+        0
+      ],
+      "espessura": 0.15,
+      "externo": true
+    },
+    {
+      "nivel": "Pavimento 1",
+      "nome": "P1 Sul",
+      "p1": [
+        8,
+        6
+      ],
+      "p2": [
+        0,
+        6
+      ],
+      "espessura": 0.15,
+      "externo": true
+    }
+  ],
+  "lajes": [
+    {
+      "nivel": "Térreo",
+      "nome": "Laje Térreo",
+      "espessura": 0.12,
+      "topo": 0.0,
+      "contorno": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "nivel": "Pavimento 1",
+      "nome": "Laje Piso 1",
+      "espessura": 0.12,
+      "topo": 0.0,
+      "contorno": [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    }
+  ],
+  "vaos": [
+    {
+      "parede": 0,
+      "nome": "Porta Entrada",
+      "inicio": 1.0,
+      "largura": 0.9,
+      "altura": 2.1,
+      "peitoril": 0.0
+    },
+    {
+      "parede": 0,
+      "nome": "Janela 1",
+      "inicio": 4.0,
+      "largura": 1.2,
+      "altura": 1.2,
+      "peitoril": 1.0
+    },
+    {
+      "parede": 1,
+      "nome": "Janela Leste",
+      "inicio": 2.0,
+      "largura": 1.2,
+      "altura": 1.2,
+      "peitoril": 1.0
+    }
+  ]
+}

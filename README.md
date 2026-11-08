@@ -73,6 +73,31 @@ A geometria entra como **referencia** dentro do pavimento, nao como
 `IfcWall`/`IfcSlab`: o vinculo elemento→geometria ainda nao foi decodificado
 (ver `ISSUES.md`, item 3).
 
+## Criar arquivos que o Revit abre (saida)
+
+A direcao inversa — gerar modelo para o Revit — usa **IFC**, que o Revit abre
+nativamente. `src/criar_ifc.py` monta o arquivo a partir de um JSON simples
+(niveis, paredes, lajes, vaos) com geometria real:
+
+```bash
+python3 src/criar_ifc.py --exemplo > casa.json
+python3 src/criar_ifc.py casa.json casa.ifc --schema IFC4 --verifica
+python3 src/criar_ifc.py casa.json casa2x3.ifc --schema IFC2X3
+```
+
+Gera `IfcWallStandardCase` com representacao `Axis` + `Body` e
+`IfcMaterialLayerSetUsage` (vira parede com espessura no Revit), `IfcSlab`,
+`IfcOpeningElement` + `IfcRelVoidsElement` (vaos), `IfcBuildingStorey` e
+`IfcRelContainedInSpatialStructure`. Verificado: 0 erros de schema em IFC4 e
+IFC2X3, volumes exatos pelo kernel (parede 8x0,15x2,8 = 3,3600 m3; laje
+8x6x0,12 = 5,7600 m3), vao reduzindo volume (2,7840 < 3,3600).
+
+Nao geramos `.rvt`/`.rfa` (formato proprietario fechado). Detalhes, tabela do
+que o Revit reconhece e limitacoes: `docs/REVIT_SAIDA.md`.
+
+Exemplos prontos: `exemplos/casa_demo_spec.json`,
+`exemplos/casa_demo_IFC4.ifc`, `exemplos/casa_demo_IFC2X3.ifc`.
+
 ## Uso
 
 ```bash
@@ -93,10 +118,12 @@ python3 src/rvttool.py poligonos arquivo.rvt contornos.dxf   # contornos fechado
 python3 src/rvttool.py catalogo arquivo.rvt catalogo.csv     # simbolos: nome, classe, id
 ```
 
-Teste de fumaca (roda tudo sobre a amostra avancada e valida os invariantes):
+Testes (o primeiro roda tudo sobre a amostra avancada; o segundo valida o
+gerador de IFC nos dois schemas):
 
 ```bash
 python3 tests/test_smoke.py
+python3 tests/test_criar_ifc.py
 ```
 
 **`exporta`** gera um JSON com cada registro de elemento: `id`, `grupo`
